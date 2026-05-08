@@ -183,6 +183,7 @@ body {
 /* ── TEXT BEATS ──────────────────────────── */
 .beat {
   position: absolute;
+  top: 50%;
   inset: 0;
   z-index: 15;
   display: flex;
@@ -207,6 +208,20 @@ body {
   font-size: clamp(2rem, 5vw, 4rem);
   color: #fff;
   margin-bottom: .5rem;
+}
+#beat-a {
+  align-items: center;
+  justify-content: flex-start; /* push to top */
+  padding-top: 6vh;
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8vh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s, transform .15s;
 }
 .beat p {
   font-size: 1rem;
@@ -235,7 +250,9 @@ body {
 
 /* ── NAV ─────────────────────────────────── */
 #nav {
+  position: fixed;
   top: 0; left: 0; right: 0;
+  z-index: 200;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -244,9 +261,13 @@ body {
   border-bottom: 1px solid var(--bdr);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  /* Remove transform — nav is always visible now */
   transform: translateY(-8px);
+  opacity: 0 !important;
+  pointer-events: auto !important;
 }
-#nav.visible { transform: translateY(0); }
+
+#nav.visible { transform: translateY(0); opacity: 1 !important; pointer-events: auto !important; }
 
 .logo-light { display: block; height: 40px; }
 .logo-dark  { display: none;  height: 40px; }
@@ -278,10 +299,10 @@ body {
 
 /* ── HERO LEFT ───────────────────────────── */
 #hero-left {
-  left: 3rem;
+  left: 16rem;
   top: 50%;
   transform: translateY(calc(-50% + 12px));
-  max-width: 380px;
+  max-width: 600px;
 }
 #hero-left.visible { transform: translateY(-50%); }
 
@@ -303,13 +324,13 @@ body {
 h1.hero-h {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1;
+  font-size: clamp(3.5rem, 3.2vw, 2.8rem);
+  line-height: 1.05;
   letter-spacing: -.03em;
   margin-bottom: 1rem;
   color: #fff;
 }
-h1.hero-h em { color: var(--acc); font-style: normal; display: block; }
+h1.hero-h em { color: var(--acc); font-style: normal; display: block;  white-space: nowrap; }
 .hero-desc {
   font-size: .88rem;
   color: rgba(255,255,255,.55);
@@ -336,21 +357,22 @@ h1.hero-h em { color: var(--acc); font-style: normal; display: block; }
 
 /* ── HERO RIGHT (stats) ──────────────────── */
 #hero-right {
-  right: 3rem;
-  top: 50%;
+  right: 16rem;
+  top: calc(50% + 120px);
   transform: translateY(calc(-50% + 12px));
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   align-items: flex-end;
+  width: 230px;
+  flex-wrap: wrap;
 }
 #hero-right.visible { transform: translateY(-50%); }
 
-.hstat { text-align: right; }
+.hstat { text-align: left; }
 .hstat .n {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 2.8rem;
+  font-size: 4rem;
   color: #fff;
   line-height: 1;
 }
@@ -363,20 +385,50 @@ h1.hero-h em { color: var(--acc); font-style: normal; display: block; }
   margin-top: .2rem;
 }
 
-/* ── PEN IMAGE ───────────────────────────── */
-#hero-pen {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, calc(-50% + 8px));
-  z-index: 10; /* behind overlay els but above canvas */
+/* ── PEN & BASE ──────────────────────────── */
+.penscroll,
+.penbase {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transform: translateY(8px);
 }
-#hero-pen.visible { transform: translate(-50%, -50%); }
-#hero-pen img {
-  width: auto;
-  max-height: 60vh;
-  max-width: 50vw;
-  object-fit: contain;
+
+.penscroll.visible,
+.penbase.visible {
+  transform: translateY(0);
+}
+
+.penscroll img,
+.penbase img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* match canvas object-fit: cover behavior */
+  object-position: center;
   display: block;
+}
+
+/* Pen is clipped at the point where it enters the base */
+.penscroll img {
+  clip-path: inset(0 0 22.5% 0); /* trim bottom 22% — adjust % to match */
+}
+
+/* Base sits on top of pen bottom via z-index */
+.penscroll {
+  z-index: 12; /* pen above base */
+}
+
+.penbase {
+  z-index: 11; /* base below pen */
 }
 
 /* ── SOCIAL PROOF CARDS ──────────────────── */
@@ -400,6 +452,10 @@ h1.hero-h em { color: var(--acc); font-style: normal; display: block; }
   border-radius: 50%;
   flex-shrink: 0;
 }
+.proof-img {
+    height: 100%;
+    object-fit: cover;
+}
 .proof-body { display: flex; flex-direction: column; gap: .3rem; }
 .proof-name {
   font-family: 'Syne', sans-serif;
@@ -421,20 +477,20 @@ h1.hero-h em { color: var(--acc); font-style: normal; display: block; }
 
 /* Card 1 — left, upper */
 #proof-1 {
-  left: calc(50% - 380px);
-  top: calc(50% - 180px);
+  left: calc(50% + 100px);
+  top: calc(50% - 200px);
 }
 /* Card 2 — right */
 #proof-2 {
-  right: 3rem;
-  top: 50%;
+  right: 16rem;
+  top: calc(50% - 105px);
   transform: translateY(calc(-50% + 12px));
 }
 #proof-2.visible { transform: translateY(-50%); }
 /* Card 3 — left, lower (40px gap below card 1) */
 #proof-3 {
-  left: calc(50% - 380px);
-  top: calc(50% - 180px + 240px + 40px); /* card height ~240px + 40px gap */
+  left: calc(50% + 100px);
+  top: calc(50% + 20px); /* card height ~240px + 40px gap */
 }
 
 /* ══════════════════════════════════════════
@@ -478,6 +534,11 @@ section { padding: 5rem 2.5rem; }
   font-family: 'Syne', sans-serif; font-weight: 800;
   font-size: clamp(1.6rem,2.5vw,2.2rem); letter-spacing: -.025em;
 }
+.skill-project {display: flex; gap: 40px;}
+.skills { display: flex; flex-direction: column; width: 80px; height: fit-content; }
+.skill-name {color: var(--fg); }
+.tools { width: 600px; border: 2px solid var(--fg); border-radius: 16px; }
+.skill-name.active {color: var(--acc); font-weight: 800; }
 .pgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--bdr); }
 .pcard { background:var(--card); position:relative; overflow:hidden; cursor:pointer; transition:background .25s; }
 .pcard:hover { background:var(--bg); }

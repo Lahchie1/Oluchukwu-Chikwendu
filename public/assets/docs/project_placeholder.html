@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Case Study</title>
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+      padding: 30px;
+      background: #0e0e0e;
+      color: #ede8e2;
+    }
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      background: #131313;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255, 92, 31, 0.15);
+      color: #ff5c1f;
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 0 0 15px 0;
+      color: #fff;
+    }
+    p {
+      color: #9a9590;
+      line-height: 1.8;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+    .graphic {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #131313, #1a1a1a);
+      border-radius: 8px;
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    }
+    .graphic span {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .graphic label {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 35px 0 15px 0;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 10px;
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 25px;
+    }
+    .grid-item h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      margin: 0 0 8px 0;
+      color: #ff5c1f;
+    }
+    .grid-item p {
+      font-size: 0.88rem;
+      margin: 0;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      background: #ff5c1f;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-top: 30px;
+      transition: all 0.2s;
+    }
+    .btn-download:hover {
+      background: #e04d14;
+      transform: translateY(-2px);
+    }
+    
+    /* Dynamic Theme Overrides */
+    .g1 { background: linear-gradient(135deg, #1a0800, #ff5c1f); }
+    .g2 { background: linear-gradient(135deg, #040410, #2b12d4); }
+    .g3 { background: linear-gradient(135deg, #001008, #00a35e); }
+    .g4 { background: linear-gradient(135deg, #100010, #9900a8); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge" id="doc-badge">Case Study</span>
+    <h1 id="doc-title">Project Case Study</h1>
+    <p id="doc-desc">
+      Detailed documentation of design system elements, implementation flows, and visual strategies for this project.
+    </p>
+
+    <div class="graphic" id="doc-graphic">
+      <span id="graphic-text">PROJECT PREVIEW</span>
+      <label id="graphic-label">Visual Design Asset</label>
+    </div>
+
+    <h2>Design & Execution Process</h2>
+    <p>
+      The process followed standard user-centric methodologies, analyzing brand positioning, developing visual assets, and validating user feedback to create high-fidelity design artifacts.
+    </p>
+
+    <div class="section-grid">
+      <div class="grid-item">
+        <h3>Brand Alignment</h3>
+        <p>Aligning structural and graphic components with existing product pillars and corporate identity guidelines.</p>
+      </div>
+      <div class="grid-item">
+        <h3>Execution Details</h3>
+        <p>Executed using state-of-the-art designer frameworks and layout standards to ensure pixel-perfect delivery.</p>
+      </div>
+    </div>
+
+    <a href="#" class="btn-download" id="download-btn">Download Full Case Study PDF</a>
+  </div>
+
+  <script>
+    // Parse URL Query parameters
+    function getQueryParam(name) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    var title = getQueryParam('title');
+    var desc = getQueryParam('desc');
+    var badge = getQueryParam('badge');
+    var theme = getQueryParam('theme') || 'g1';
+
+    if (title) {
+      document.getElementById('doc-title').textContent = title;
+      document.getElementById('graphic-text').textContent = title.toUpperCase();
+    }
+    if (desc) {
+      document.getElementById('doc-desc').textContent = desc;
+    }
+    if (badge) {
+      document.getElementById('doc-badge').textContent = badge + " — Case Study";
+      document.getElementById('graphic-label').textContent = badge + " System Preview";
+    }
+    if (theme) {
+      document.getElementById('doc-graphic').className = 'graphic ' + theme;
+    }
+
+    document.getElementById('download-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Case study PDF download starting for: ' + (title || 'Project'));
+    });
+  </script>
+</body>
+</html>

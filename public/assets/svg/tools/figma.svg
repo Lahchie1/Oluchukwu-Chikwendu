@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+</style>
+<g>
+	<path class="st0" d="M200,200c0-27.6,22.3-50,50-50s50,22.4,50,50s-22.4,50-50,50S200,227.6,200,200z"/>
+	<path class="st0" d="M100,300.1c0-27.6,22.3-50,49.9-50H200v50c0,27.6-22.3,49.9-49.9,49.9S100,327.7,100,300.1z"/>
+	<path class="st0" d="M200,50v100h50c27.6,0,50-22.3,50-49.9s-22.4-50-50-50L200,50L200,50z"/>
+	<path class="st0" d="M100,100c0,27.6,22.3,50,49.9,50H200V50h-49.9C122.5,50,100,72.4,100,100z"/>
+	<path class="st0" d="M100,200c0,27.6,22.3,50,49.9,50H200V149.9h-49.9C122.5,150,100,172.4,100,200z"/>
+</g>
+</svg>

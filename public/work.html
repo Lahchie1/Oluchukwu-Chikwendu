@@ -1,0 +1,1459 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Work categories for Graphics, UI/UX and Motion projects by Oluchukwu Josiah."
+    />
+    <title>Work — Oluchukwu Josiah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAV — outside animation container -->
+    <nav id="nav" class="hero-overlay-el visible"></nav>
+    <script src="navbar.js"></script>
+
+    <main>
+      <!-- Full-screen hero section with background image -->
+      <section class="page-hero">
+        <div class="mx page-hero-mx">
+          <div class="page-hero-copy">
+            <h1 class="hero-title reveal d1">
+              Work designed for bold brands and polished products
+            </h1>
+            <p class="hero-sub reveal d2">
+              Explore curated Graphics, UI/UX, and Motion work across identity,
+              digital products, and animated storytelling.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Constrained main content layout -->
+      <div class="mx">
+        <section class="work-page">
+          <!-- Horizontal Tabs placed above all text and header -->
+          <div class="work-subnav">
+            <button
+              class="workpage-skills-tab-btn active"
+              data-tab="graphics"
+              onclick="switchWorkTab('graphics')"
+            >
+              Graphics
+            </button>
+
+            <button
+              class="workpage-skills-tab-btn"
+              data-tab="uiUx"
+              onclick="switchWorkTab('uiUx')"
+            >
+              UI/UX
+            </button>
+
+            <button
+              class="workpage-skills-tab-btn"
+              data-tab="motion"
+              onclick="switchWorkTab('motion')"
+            >
+              Motion
+            </button>
+
+            <button
+              class="workpage-skills-tab-btn"
+              data-tab="webApp"
+              onclick="switchWorkTab('webApp')"
+            >
+              Web/App
+            </button>
+          </div>
+
+          <div class="skill-project">
+            <!-- GRAPHICS PANEL -->
+            <div id="graphics" class="tool-projects active">
+              <!-- Tools horizontally aligned under the tabs -->
+              <div class="work-tools">
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/illustrator.svg"
+                    class="work-tool"
+                    alt="Illustrator"
+                  />
+                </div>
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/photoshop.svg"
+                    class="work-tool"
+                    alt="Photoshop"
+                  />
+                </div>
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/coreldraw.svg"
+                    class="work-tool"
+                    alt="CorelDRAW"
+                  />
+                </div>
+              </div>
+
+              <!-- Header content changes with active tab -->
+              <div class="work-hdr">
+                <div>
+                  <h2 class="reveal d1">Graphics & Brand Systems</h2>
+                  <p class="about-p reveal d2">
+                    Visual identity, vector illustrations, logo designs, and core brand assets built for bold identities.
+                  </p>
+                </div>
+              </div>
+              <div class="pgrid reveal d2">
+                <div class="projects">
+                  <!-- Row 1 -->
+                  <div class="pcard" data-project="apex" onclick="toggleProjectDrawer('apex')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof1.png" class="thumb-img" alt="Apex System" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Brand System</div>
+                        <label>Graphics</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Brand Identity</span><span class="ptag">Visual Design</span></div>
+                      <div class="ptitle">Apex — Brand &amp; Motion System</div>
+                      <div class="pdesc">Visual identity design for a fintech brand, including logomark, illustration system and campaign assets.</div>
+                      <div class="parr">View case study →</div>
+                    </div>
+                  </div>
+
+                  <div class="pcard" data-project="nova" onclick="toggleProjectDrawer('nova')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof2.png" class="thumb-img" alt="Nova Brand" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Packaging</div>
+                        <label>Graphics</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Identity</span><span class="ptag">Eco Packaging</span></div>
+                      <div class="ptitle">Nova — Brand &amp; Packaging</div>
+                      <div class="pdesc">Visual identity and packaging system designed for an organic sustainable food retail brand.</div>
+                      <div class="parr">View case study →</div>
+                    </div>
+                  </div>
+
+                  <div class="pcard" data-project="horizon" onclick="toggleProjectDrawer('horizon')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof3.png" class="thumb-img" alt="Horizon Illustration" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Illustration</div>
+                        <label>Graphics</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Vector Art</span><span class="ptag">Editorial</span></div>
+                      <div class="ptitle">Horizon — Vector Series</div>
+                      <div class="pdesc">A collection of geometric flat-style vector illustrations crafted for a corporate tech publication.</div>
+                      <div class="parr">View case study →</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 1 Drawers -->
+                  <div class="project-drawer" id="drawer-apex" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Apex — Brand &amp; Motion System</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('apex')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Apex%20%E2%80%94%20Brand%20%26%20Motion%20System&desc=Visual%20identity%20design%20for%20a%20fintech%20brand%2C%20including%20logomark%2C%20illustration%20system%20and%20campaign%20assets.&badge=Graphics&theme=g1" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+                  <div class="project-drawer" id="drawer-nova" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Nova — Brand &amp; Packaging</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('nova')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Nova%20%E2%80%94%20Brand%20Identity%20%26%20Packaging&desc=Visual%20identity%20and%20packaging%20system%20designed%20for%20an%20organic%20sustainable%20food%20retailer.&badge=Graphics&theme=g2" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+                  <div class="project-drawer" id="drawer-horizon" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Horizon — Vector Series</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('horizon')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Horizon%20%E2%80%94%20Vector%20Illustration%20Series&desc=A%20collection%20of%20geometric%20flat-style%20vector%20illustrations%20crafted%20for%20a%20corporate%20tech%20magazine.&badge=Graphics&theme=g3" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2 -->
+                  <div class="pcard" data-project="glyph" onclick="toggleProjectDrawer('glyph')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof2.png"
+                        class="thumb-img"
+                        alt="Glyph Type"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Type Design</div>
+                        <label>Graphics</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Typography</span>
+                        <span class="ptag">Custom Font</span>
+                      </div>
+                      <div class="ptitle">Glyph — Typeface Design</div>
+                      <div class="pdesc">
+                        A modular geometric typeface crafted for use across editorial, digital, and environmental signage systems.
+                      </div>
+                      <div class="parr">View case study →</div>
+                    </div>
+                  </div>
+
+                  <div class="pcard" data-project="orbit" onclick="toggleProjectDrawer('orbit')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof3.png"
+                        class="thumb-img"
+                        alt="Orbit Poster"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Poster Series</div>
+                        <label>Graphics</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Art Direction</span>
+                        <span class="ptag">Print</span>
+                      </div>
+                      <div class="ptitle">Orbit — Poster Collection</div>
+                      <div class="pdesc">
+                        A curated series of limited-edition art posters exploring planetary motion and spatial colour theory.
+                      </div>
+                      <div class="parr">View case study →</div>
+                    </div>
+                  </div>
+
+                  <div class="pcard" data-project="strata" onclick="toggleProjectDrawer('strata')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof1.png"
+                        class="thumb-img"
+                        alt="Strata Brand"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Brand Refresh</div>
+                        <label>Graphics</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Rebrand</span>
+                        <span class="ptag">Corporate</span>
+                      </div>
+                      <div class="ptitle">Strata — Corporate Rebrand</div>
+                      <div class="pdesc">
+                        A full-scale identity refresh for an architecture consultancy, including logo, stationery and brand guidelines.
+                      </div>
+                      <div class="parr">View case study →</div>
+                    </div>
+                  </div>
+                  <!-- Row 2 Drawers -->
+                  <div class="project-drawer" id="drawer-glyph" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Glyph — Typeface Design</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('glyph')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Glyph%20%E2%80%94%20Typeface%20Design&desc=A%20modular%20geometric%20typeface%20crafted%20for%20editorial%2C%20digital%2C%20and%20environmental%20signage%20systems.&badge=Graphics&theme=g1" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+                  <div class="project-drawer" id="drawer-orbit" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Orbit — Poster Collection</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('orbit')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Orbit%20%E2%80%94%20Limited%20Edition%20Poster%20Series&desc=A%20curated%20series%20of%20art%20posters%20exploring%20planetary%20motion%20and%20spatial%20colour%20theory.&badge=Graphics&theme=g2" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+                  <div class="project-drawer" id="drawer-strata" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Strata — Corporate Rebrand</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('strata')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Strata%20%E2%80%94%20Corporate%20Rebrand&desc=A%20full-scale%20identity%20refresh%20for%20an%20architecture%20consultancy%20including%20logo%2C%20stationery%20and%20brand%20guidelines.&badge=Graphics&theme=g3" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- UI/UX PANEL -->
+            <div id="uiUx" class="tool-projects">
+              <!-- Tools horizontally aligned under the tabs -->
+              <div class="work-tools">
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/figma.svg"
+                    class="work-tool"
+                    alt="Figma"
+                  />
+                </div>
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/framer.svg"
+                    class="work-tool"
+                    alt="Framer"
+                  />
+                </div>
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/webflow.svg"
+                    class="work-tool"
+                    alt="Webflow"
+                  />
+                </div>
+              </div>
+
+              <!-- Header content changes with active tab -->
+              <div class="work-hdr">
+                <div>
+                  <h2 class="reveal d1">UI/UX & Product Design</h2>
+                  <p class="about-p reveal d2">
+                    High-fidelity interactive mockups, user flows, and responsive websites with focus on polished interaction.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pgrid reveal d2">
+                <div class="projects">
+                  <!-- Row 1 -->
+                  <div class="pcard" data-project="vela" onclick="toggleProjectDrawer('vela')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof2.png"
+                        class="thumb-img"
+                        alt="Vela App"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">App UI</div>
+                        <label>UI/UX</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Product Design</span>
+                        <span class="ptag">Interaction</span>
+                      </div>
+                      <div class="ptitle">Vela — Crypto Wallet App</div>
+                      <div class="pdesc">
+                        A modern mobile wallet concept with clear flows, polished micro-interactions and brand-led interface design.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 2 -->
+                  <div class="pcard" data-project="aura" onclick="toggleProjectDrawer('aura')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof3.png"
+                        class="thumb-img"
+                        alt="Aura App"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Mobile App</div>
+                        <label>UI/UX</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Mindfulness</span>
+                        <span class="ptag">Mobile UX</span>
+                      </div>
+                      <div class="ptitle">Aura — Meditation App</div>
+                      <div class="pdesc">
+                        A wellness-focused mobile experience optimized for calming micro-interactions and accessibility standards.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 3 -->
+                  <div class="pcard" data-project="prism" onclick="toggleProjectDrawer('prism')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof1.png"
+                        class="thumb-img"
+                        alt="Prism Dashboard"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">SaaS Platform</div>
+                        <label>UI/UX</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Analytics</span>
+                        <span class="ptag">Dashboard</span>
+                      </div>
+                      <div class="ptitle">Prism — SaaS Dashboard</div>
+                      <div class="pdesc">
+                        A high-density analytics dashboard featuring fully interactive responsive charts and dark-mode controls.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 4 -->
+                  <div class="pcard" data-project="nexus" onclick="toggleProjectDrawer('nexus')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof2.png"
+                        class="thumb-img"
+                        alt="Nexus Platform"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Web Platform</div>
+                        <label>UI/UX</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Web Design</span>
+                        <span class="ptag">Design System</span>
+                      </div>
+                      <div class="ptitle">Nexus — Design System</div>
+                      <div class="pdesc">
+                        A scalable component library and design system for a B2B SaaS product, with 80+ reusable UI atoms.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 5 -->
+                  <div class="pcard" data-project="canvas" onclick="toggleProjectDrawer('canvas')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof3.png"
+                        class="thumb-img"
+                        alt="Canvas App"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Creative Tool</div>
+                        <label>UI/UX</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Tool Design</span>
+                        <span class="ptag">Whiteboard</span>
+                      </div>
+                      <div class="ptitle">Canvas — Collaboration Tool</div>
+                      <div class="pdesc">
+                        A real-time collaborative whiteboard app with infinite canvas, smart shapes, and live cursor presence.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 6 -->
+                  <div class="pcard" data-project="flux" onclick="toggleProjectDrawer('flux')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof1.png"
+                        class="thumb-img"
+                        alt="Flux E-commerce"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">E-commerce</div>
+                        <label>UI/UX</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Shopping</span>
+                        <span class="ptag">Conversion UX</span>
+                      </div>
+                      <div class="ptitle">Flux — E-commerce Redesign</div>
+                      <div class="pdesc">
+                        A full checkout-flow redesign for a fashion retailer, improving conversion by simplifying the purchase journey.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 1 Drawers -->
+                  <div class="project-drawer" id="drawer-vela" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Vela — Crypto Wallet App</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('vela')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Vela%20%E2%80%94%20Crypto%20Wallet%20App&desc=A%20clean%2C%20modern%20cryptocurrency%20wallet%20mobile%20app%20featuring%20rich%20dark%20themes%20and%20seamless%20transactions.&badge=UI%2FUX&theme=g1" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-aura">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Aura — Meditation App</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('aura')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Aura%20%E2%80%94%20Meditation%20%26%20Mindfulness%20App&desc=A%20wellness-focused%20mobile%20experience%20optimized%20for%20calming%20micro-interactions%20and%20accessibility%20standards.&badge=UI%2FUX&theme=g3" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-prism" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Prism — SaaS Dashboard</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('prism')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Prism%20%E2%80%94%20SaaS%20Data%20Analytics%20Dashboard&desc=A%20high-density%20analytics%20dashboard%20featuring%20fully%20interactive%20responsive%20charts%20and%20dark-mode%20controls.&badge=UI%2FUX&theme=g4" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2 -->
+                  <div class="pcard" data-project="nexus" onclick="toggleProjectDrawer('nexus')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof2.png" class="thumb-img" alt="Nexus Platform" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">Web Platform</div><label>UI/UX</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Web Design</span><span class="ptag">Design System</span></div>
+                      <div class="ptitle">Nexus — Design System</div>
+                      <div class="pdesc">A scalable component library and design system for a B2B SaaS product, with 80+ reusable UI atoms.</div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+                  <div class="pcard" data-project="canvas" onclick="toggleProjectDrawer('canvas')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof3.png" class="thumb-img" alt="Canvas App" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">Creative Tool</div><label>UI/UX</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Tool Design</span><span class="ptag">Whiteboard</span></div>
+                      <div class="ptitle">Canvas — Collaboration Tool</div>
+                      <div class="pdesc">A real-time collaborative whiteboard app with infinite canvas, smart shapes, and live cursor presence.</div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+                  <div class="pcard" data-project="flux" onclick="toggleProjectDrawer('flux')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof1.png" class="thumb-img" alt="Flux E-commerce" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">E-commerce</div><label>UI/UX</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Shopping</span><span class="ptag">Conversion UX</span></div>
+                      <div class="ptitle">Flux — E-commerce Redesign</div>
+                      <div class="pdesc">A full checkout-flow redesign for a fashion retailer, improving conversion by simplifying the purchase journey.</div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2 Drawers -->
+                  <div class="project-drawer" id="drawer-nexus" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Nexus — Design System</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('nexus')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Nexus%20%E2%80%94%20Design%20System&desc=A%20scalable%20component%20library%20and%20design%20system%20for%20a%20B2B%20SaaS%20product%20with%2080%2B%20reusable%20UI%20atoms.&badge=UI%2FUX&theme=g2" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-canvas">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Canvas — Collaboration Tool</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('canvas')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Canvas%20%E2%80%94%20Real-time%20Collaboration%20Whiteboard&desc=A%20real-time%20collaborative%20whiteboard%20app%20with%20infinite%20canvas%2C%20smart%20shapes%2C%20and%20live%20cursor%20presence.&badge=UI%2FUX&theme=g3" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-flux">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Flux — E-commerce Redesign</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('flux')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Flux%20%E2%80%94%20E-commerce%20Checkout%20Redesign&desc=A%20full%20checkout-flow%20redesign%20improving%20conversion%20by%20simplifying%20the%20fashion%20retail%20purchase%20journey.&badge=UI%2FUX&theme=g4" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MOTION PANEL -->
+            <div id="motion" class="tool-projects">
+              <!-- Tools horizontally aligned under the tabs -->
+              <div class="work-tools">
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/after effect.svg"
+                    class="work-tool"
+                    alt="After Effects"
+                  />
+                </div>
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/premierepro.svg"
+                    class="work-tool"
+                    alt="Premiere Pro"
+                  />
+                </div>
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/capcut.svg"
+                    class="work-tool"
+                    alt="CapCut"
+                  />
+                </div>
+              </div>
+
+              <!-- Header content changes with active tab -->
+              <div class="work-hdr">
+                <div>
+                  <h2 class="reveal d1">Motion Graphics & Animation</h2>
+                  <p class="about-p reveal d2">
+                    Dynamic storyboarding, explainer animations, video editing, and post-production systems.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pgrid reveal d2">
+                <div class="projects">
+                  <!-- Project 1 -->
+                  <div class="pcard" data-project="ecotrack" onclick="toggleProjectDrawer('ecotrack')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof3.png"
+                        class="thumb-img"
+                        alt="EcoTrack Film"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Video Graphics</div>
+                        <label>Motion</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Motion</span>
+                        <span class="ptag">Brand Film</span>
+                      </div>
+                      <div class="ptitle">EcoTrack — Brand Film</div>
+                      <div class="pdesc">
+                        A short animated explainer for a sustainability platform with dynamic motion and storytelling visuals.
+                      </div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 2 -->
+                  <div class="pcard" data-project="pulse" onclick="toggleProjectDrawer('pulse')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof1.png"
+                        class="thumb-img"
+                        alt="Pulse Reel"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Kinetic Type</div>
+                        <label>Motion</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Typography</span>
+                        <span class="ptag">Sound Sync</span>
+                      </div>
+                      <div class="ptitle">Pulse — Kinetic Type Reel</div>
+                      <div class="pdesc">
+                        A fast-paced rhythmic motion short syncing fluid kinetic typography to high-energy electronic soundscapes.
+                      </div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 3 -->
+                  <div class="pcard" data-project="zenith" onclick="toggleProjectDrawer('zenith')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof2.png"
+                        class="thumb-img"
+                        alt="Zenith Promo"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">3D Promo</div>
+                        <label>Motion</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">3D UI</span>
+                        <span class="ptag">App Promo</span>
+                      </div>
+                      <div class="ptitle">Zenith — App Promo Film</div>
+                      <div class="pdesc">
+                        A premium promotional video featuring 3D mobile interface renders, dynamic lighting, and interface showcase flows.
+                      </div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 4 -->
+                  <div class="pcard" data-project="aurora" onclick="toggleProjectDrawer('aurora')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof1.png"
+                        class="thumb-img"
+                        alt="Aurora Loop"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Motion Loop</div>
+                        <label>Motion</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Seamless Loop</span>
+                        <span class="ptag">Ambient</span>
+                      </div>
+                      <div class="ptitle">Aurora — Ambient Loop Series</div>
+                      <div class="pdesc">
+                        A set of seamlessly looping ambient motion graphics designed for digital signage and live event screens.
+                      </div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 5 -->
+                  <div class="pcard" data-project="ripple" onclick="toggleProjectDrawer('ripple')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof2.png"
+                        class="thumb-img"
+                        alt="Ripple Social"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Social Content</div>
+                        <label>Motion</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Reels</span>
+                        <span class="ptag">Social Media</span>
+                      </div>
+                      <div class="ptitle">Ripple — Social Content Pack</div>
+                      <div class="pdesc">
+                        A complete motion content kit for social media: story templates, reel intros, and animated lower-thirds.
+                      </div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 6 -->
+                  <div class="pcard" data-project="forge" onclick="toggleProjectDrawer('forge')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof3.png"
+                        class="thumb-img"
+                        alt="Forge Opener"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Broadcast Opener</div>
+                        <label>Motion</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Broadcast</span>
+                        <span class="ptag">Show Package</span>
+                      </div>
+                      <div class="ptitle">Forge — Broadcast Opener</div>
+                      <div class="pdesc">
+                        A high-octane animated show opener package for a sports broadcast channel featuring particle explosions and hard cuts.
+                      </div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 1 Drawers -->
+                  <div class="project-drawer" id="drawer-ecotrack" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>EcoTrack — Brand Film</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('ecotrack')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=EcoTrack%20%E2%80%94%20Brand%20Film&desc=An%20animated%20promo%20film%20incorporating%20mixed%202D%20character%20animation%20and%20motion%20graphics%20storytelling.&badge=Motion&theme=g1" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-pulse">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Pulse — Kinetic Type Reel</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('pulse')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Pulse%20%E2%80%94%20Kinetic%20Typography%20Reel&desc=A%20fast-paced%20rhythmic%20motion%20short%20syncing%20fluid%20kinetic%20typography%20to%20high-energy%20soundscapes.&badge=Motion&theme=g2" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-zenith" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Zenith — App Promo Film</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('zenith')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Zenith%20%E2%80%94%203D%20App%20Promo%20Animation&desc=A%20premium%20promotional%20video%20featuring%203D%20mobile%20interface%20renders%2C%20dynamic%20lighting%2C%20and%20interface%20showcase%20flows.&badge=Motion&theme=g4" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2 -->
+                  <div class="pcard" data-project="aurora" onclick="toggleProjectDrawer('aurora')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof1.png" class="thumb-img" alt="Aurora Loop" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">Motion Loop</div><label>Motion</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Seamless Loop</span><span class="ptag">Ambient</span></div>
+                      <div class="ptitle">Aurora — Ambient Loop Series</div>
+                      <div class="pdesc">A set of seamlessly looping ambient motion graphics designed for digital signage and live event screens.</div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+                  <div class="pcard" data-project="ripple" onclick="toggleProjectDrawer('ripple')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof2.png" class="thumb-img" alt="Ripple Social" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">Social Content</div><label>Motion</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Reels</span><span class="ptag">Social Media</span></div>
+                      <div class="ptitle">Ripple — Social Content Pack</div>
+                      <div class="pdesc">A complete motion content kit for social media: story templates, reel intros, and animated lower-thirds.</div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+                  <div class="pcard" data-project="forge" onclick="toggleProjectDrawer('forge')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof3.png" class="thumb-img" alt="Forge Opener" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">Broadcast Opener</div><label>Motion</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Broadcast</span><span class="ptag">Show Package</span></div>
+                      <div class="ptitle">Forge — Broadcast Opener</div>
+                      <div class="pdesc">A high-octane animated show opener package for a sports broadcast channel featuring particle explosions and hard cuts.</div>
+                      <div class="parr">Watch →</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2 Drawers -->
+                  <div class="project-drawer" id="drawer-aurora" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Aurora — Ambient Loop Series</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('aurora')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Aurora%20%E2%80%94%20Ambient%20Motion%20Loop%20Series&desc=Seamlessly%20looping%20ambient%20motion%20graphics%20designed%20for%20digital%20signage%20and%20live%20event%20screens.&badge=Motion&theme=g3" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+                  <div class="project-drawer" id="drawer-ripple" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Ripple — Social Content Pack</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('ripple')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Ripple%20%E2%80%94%20Social%20Media%20Motion%20Pack&desc=A%20complete%20motion%20content%20kit%20including%20story%20templates%2C%20reel%20intros%2C%20and%20animated%20lower-thirds.&badge=Motion&theme=g1" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+                  <div class="project-drawer" id="drawer-forge" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header"><h3>Forge — Broadcast Opener</h3><button class="drawer-close" onclick="event.stopPropagation();toggleProjectDrawer('forge')">&times;</button></div>
+                      <div class="drawer-body"><iframe src="assets/docs/project_placeholder.html?title=Forge%20%E2%80%94%20Broadcast%20Show%20Opener&desc=A%20high-octane%20animated%20opener%20package%20for%20a%20sports%20broadcast%20channel%20with%20particle%20explosions%20and%20hard%20cuts.&badge=Motion&theme=g2" class="pdf-viewer"></iframe></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WEB/APP PANEL -->
+            <div id="webApp" class="tool-projects">
+              <!-- Tools horizontally aligned under the tabs -->
+              <div class="work-tools">
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/html5.svg"
+                    class="work-tool"
+                    alt="HTML"
+                  />
+                </div>
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/css3.svg"
+                    class="work-tool"
+                    alt="CSS"
+                  />
+                </div>
+                <div class="work-tool-box">
+                  <img
+                    src="assets/svg/tools/Javascript.svg"
+                    class="work-tool"
+                    alt="JavaScript"
+                  />
+                </div>
+              </div>
+
+              <!-- Header content changes with active tab -->
+              <div class="work-hdr">
+                <div>
+                  <h2 class="reveal d1">Web & App Development</h2>
+                  <p class="about-p reveal d2">
+                    Responsive web applications, interactive interfaces, and scalable full-stack solutions built with modern technologies.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pgrid reveal d2">
+                <div class="projects">
+                  <!-- Project 1 -->
+                  <div class="pcard" data-project="portfolio-site" onclick="toggleProjectDrawer('portfolio-site')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof1.png"
+                        class="thumb-img"
+                        alt="Portfolio Site"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Portfolio</div>
+                        <label>Web/App</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Next.js</span>
+                        <span class="ptag">TypeScript</span>
+                      </div>
+                      <div class="ptitle">Portfolio — Personal Website</div>
+                      <div class="pdesc">
+                        A modern, responsive portfolio site showcasing design and development work with smooth animations and interactive features.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 2 -->
+                  <div class="pcard" data-project="saas-dashboard" onclick="toggleProjectDrawer('saas-dashboard')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof2.png"
+                        class="thumb-img"
+                        alt="SaaS Dashboard"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Web App</div>
+                        <label>Web/App</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">React</span>
+                        <span class="ptag">API Integration</span>
+                      </div>
+                      <div class="ptitle">Analytics Platform — SaaS Dashboard</div>
+                      <div class="pdesc">
+                        A full-featured analytics dashboard with real-time data visualization, responsive design, and dark mode support.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 3 -->
+                  <div class="pcard" data-project="mobile-app" onclick="toggleProjectDrawer('mobile-app')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof3.png"
+                        class="thumb-img"
+                        alt="Mobile App"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Mobile App</div>
+                        <label>Web/App</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">React Native</span>
+                        <span class="ptag">Cross-platform</span>
+                      </div>
+                      <div class="ptitle">Task Manager — Mobile Application</div>
+                      <div class="pdesc">
+                        A cross-platform mobile app for task and project management with offline capabilities and cloud synchronization.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 4 -->
+                  <div class="pcard" data-project="ecommerce-site" onclick="toggleProjectDrawer('ecommerce-site')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof2.png"
+                        class="thumb-img"
+                        alt="E-commerce Site"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">E-commerce</div>
+                        <label>Web/App</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Next.js</span>
+                        <span class="ptag">Shopify API</span>
+                      </div>
+                      <div class="ptitle">Commerce Platform — E-commerce Site</div>
+                      <div class="pdesc">
+                        A high-performance e-commerce site with product catalog, shopping cart, and integrated payment processing.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 5 -->
+                  <div class="pcard" data-project="design-system" onclick="toggleProjectDrawer('design-system')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof3.png"
+                        class="thumb-img"
+                        alt="Design System"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Component Library</div>
+                        <label>Web/App</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">React</span>
+                        <span class="ptag">Storybook</span>
+                      </div>
+                      <div class="ptitle">Design System — Component Library</div>
+                      <div class="pdesc">
+                        A comprehensive reusable component library with documentation, built with React and Storybook for consistency.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Project 6 -->
+                  <div class="pcard" data-project="cms-website" onclick="toggleProjectDrawer('cms-website')">
+                    <div class="pthumb">
+                      <img
+                        src="assets/images/proof1.png"
+                        class="thumb-img"
+                        alt="CMS Website"
+                      />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label">
+                        <div class="thumb-tag">Headless CMS</div>
+                        <label>Web/App</label>
+                      </div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags">
+                        <span class="ptag">Next.js</span>
+                        <span class="ptag">Headless CMS</span>
+                      </div>
+                      <div class="ptitle">Headless CMS — Website Builder</div>
+                      <div class="pdesc">
+                        A modern headless CMS-powered website with dynamic content management, fast performance, and SEO optimization.
+                      </div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 1 Drawers -->
+                  <div class="project-drawer" id="drawer-portfolio-site" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Portfolio — Personal Website</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('portfolio-site')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Portfolio%20%E2%80%94%20Personal%20Website&desc=A%20modern%20responsive%20portfolio%20site%20built%20with%20Next.js%20and%20TypeScript%20showcasing%20design%20and%20development%20work.&badge=Web%2FApp&theme=g1" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-saas-dashboard" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Analytics Platform — SaaS Dashboard</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('saas-dashboard')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Analytics%20Platform%20%E2%80%94%20SaaS%20Dashboard&desc=A%20full-featured%20analytics%20dashboard%20with%20real-time%20data%20visualization%20and%20responsive%20design.&badge=Web%2FApp&theme=g2" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-mobile-app" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Task Manager — Mobile Application</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('mobile-app')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Task%20Manager%20%E2%80%94%20Mobile%20Application&desc=A%20cross-platform%20mobile%20app%20for%20task%20management%20with%20offline%20capabilities%20and%20cloud%20sync.&badge=Web%2FApp&theme=g3" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2 -->
+                  <div class="pcard" data-project="ecommerce-site" onclick="toggleProjectDrawer('ecommerce-site')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof2.png" class="thumb-img" alt="E-commerce Site" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">E-commerce</div><label>Web/App</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Next.js</span><span class="ptag">Shopify API</span></div>
+                      <div class="ptitle">Commerce Platform — E-commerce Site</div>
+                      <div class="pdesc">A high-performance e-commerce site with product catalog, shopping cart, and integrated payment processing.</div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+                  <div class="pcard" data-project="design-system" onclick="toggleProjectDrawer('design-system')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof3.png" class="thumb-img" alt="Design System" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">Component Library</div><label>Web/App</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">React</span><span class="ptag">Storybook</span></div>
+                      <div class="ptitle">Design System — Component Library</div>
+                      <div class="pdesc">A comprehensive reusable component library with documentation, built with React and Storybook for consistency.</div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+                  <div class="pcard" data-project="cms-website" onclick="toggleProjectDrawer('cms-website')">
+                    <div class="pthumb">
+                      <img src="assets/images/proof1.png" class="thumb-img" alt="CMS Website" />
+                      <div class="thumb-overlay"></div>
+                      <div class="thumb-label"><div class="thumb-tag">Headless CMS</div><label>Web/App</label></div>
+                    </div>
+                    <div class="pbody">
+                      <div class="ptags"><span class="ptag">Next.js</span><span class="ptag">Headless CMS</span></div>
+                      <div class="ptitle">Headless CMS — Website Builder</div>
+                      <div class="pdesc">A modern headless CMS-powered website with dynamic content management, fast performance, and SEO optimization.</div>
+                      <div class="parr">View project →</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2 Drawers -->
+                  <div class="project-drawer" id="drawer-ecommerce-site" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Commerce Platform — E-commerce Site</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('ecommerce-site')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Commerce%20Platform%20%E2%80%94%20E-commerce%20Site&desc=A%20high-performance%20e-commerce%20site%20with%20product%20catalog%20and%20integrated%20payment%20processing.&badge=Web%2FApp&theme=g1" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-design-system" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Design System — Component Library</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('design-system')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Design%20System%20%E2%80%94%20Component%20Library&desc=A%20comprehensive%20reusable%20component%20library%20built%20with%20React%20and%20Storybook.&badge=Web%2FApp&theme=g2" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-drawer" id="drawer-cms-website" style="display:none;grid-column:1/-1">
+                    <div class="drawer-content">
+                      <div class="drawer-header">
+                        <h3>Headless CMS — Website Builder</h3>
+                        <button class="drawer-close" onclick="event.stopPropagation(); toggleProjectDrawer('cms-website')">&times;</button>
+                      </div>
+                      <div class="drawer-body">
+                        <iframe src="assets/docs/project_placeholder.html?title=Headless%20CMS%20%E2%80%94%20Website%20Builder&desc=A%20modern%20headless%20CMS-powered%20website%20with%20dynamic%20content%20management%20and%20fast%20performance.&badge=Web%2FApp&theme=g3" class="pdf-viewer"></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+      </div> <!-- End .mx -->
+    </main>
+
+    <!-- ══════════════════════════════════════════
+        IMPROVED FOOTER (Negative Split Style)
+    ══════════════════════════════════════════ -->
+    <footer class="premium-footer">
+      <div class="footer-banner" data-words="Graphics, UI/UX, Web/App, Motion">
+        <!-- Bottom layer: Cream bg, dark text -->
+        <div class="banner-layer layer-bottom" aria-hidden="true">
+          <div class="banner-text">Graphics</div>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="footer-grid">
+          <!-- Col 1: Slogan + Form -->
+          <div class="fg-col brand-col">
+            <h3 class="f-slogan">Crafted with edge.<br>Built to outlive trends.</h3>
+            <p class="f-sub">Obsessive attention to detail. Blending brand-led design with high-fidelity digital execution.</p>
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Subscribed!');">
+              <input type="email" placeholder="type your email" required class="fn-input" />
+              <button type="submit" class="fn-btn" aria-label="Subscribe">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </form>
+            <div class="f-socials">
+              <a href="#" target="_blank" aria-label="Behance">Behance</a>
+              <a href="#" target="_blank" aria-label="Dribbble">Dribbble</a>
+              <a href="#" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+              <a href="#" target="_blank" aria-label="Instagram">Instagram</a>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation -->
+          <div class="fg-col links-col">
+            <h4 class="f-col-title">Navigation</h4>
+            <ul class="f-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="work.html">Works</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#skills">Skills</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Disciplines -->
+          <div class="fg-col links-col">
+            <h4 class="f-col-title">Support</h4>
+            <ul class="f-links">
+              <li><a href="work.html#graphics">Graphics</a></li>
+              <li><a href="work.html#uiUx">UI/UX</a></li>
+              <li><a href="work.html#motion">Motion</a></li>
+              <li><a href="work.html#webApp">Web/App</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Badge & Contact -->
+          <div class="fg-col contact-col">
+            <h4 class="f-col-title">Material Focus</h4>
+            <p class="fc-info">Available for freelance &amp; full-time positions worldwide.</p>
+            <a href="mailto:josiahchikwendu@gmail.com" class="fc-email">josiahchikwendu@gmail.com</a>
+            
+            <div class="f-badge-wrap">
+              <svg class="f-badge-svg" viewBox="0 0 100 100" width="80" height="80">
+                <path id="badgePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                <text font-size="8" font-weight="600" fill="currentColor" letter-spacing="1">
+                  <textPath href="#badgePath">OLUCHUKWU JOSIAH • DESIGN & CODE • </textPath>
+                </text>
+              </svg>
+              <div class="f-badge-center">OJ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="fb-copy">© 2026 Oluchukwu Josiah. Rooted in craft, refined through time.</div>
+          <button class="fb-totop" onclick="window.scrollTo({top:0, behavior:'smooth'});" aria-label="Back to top">
+            <span>Back to top</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    <script>
+      // ── Tab helpers ──────────────────────────────────────────────────────────
+      // setActiveTab: purely updates visual state + URL hash — no scroll side effect
+      function setActiveTab(tabId) {
+        document.querySelectorAll(".workpage-skills-tab-btn").forEach(function (btn) {
+          btn.classList.toggle("active", btn.dataset.tab === tabId);
+        });
+        document.querySelectorAll(".tool-projects").forEach(function (panel) {
+          panel.classList.toggle("active", panel.id === tabId);
+        });
+        if (history.pushState) {
+          history.pushState(null, null, "#" + tabId);
+        } else {
+          window.location.hash = tabId;
+        }
+      }
+
+      // switchWorkTab: used by the on-page buttons — switches tab then smooth-scrolls
+      function switchWorkTab(tabId) {
+        setActiveTab(tabId);
+        var subnav = document.querySelector(".work-subnav");
+        if (subnav) {
+          var nav = document.getElementById("nav");
+          var navHeight = nav ? nav.offsetHeight : 70;
+          var subnavTop = subnav.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: subnavTop - navHeight,
+            behavior: "smooth"
+          });
+        }
+      }
+      window.switchWorkTab = switchWorkTab;
+
+      // checkHashAndSwitch: runs on initial page load and hashchange events.
+      // Switches to the correct tab and instantly positions the viewport so the
+      // subnav is exactly at its sticky threshold — work-tools fully visible below.
+      function checkHashAndSwitch() {
+        var hash = window.location.hash.substring(1);
+        var validTabs = ["graphics", "uiUx", "motion", "webApp"];
+        if (validTabs.indexOf(hash) === -1) return;
+
+        setActiveTab(hash);
+
+        // Defer one frame so layout is fully painted before we measure
+        requestAnimationFrame(function () {
+          var subnav = document.querySelector(".work-subnav");
+          var nav = document.getElementById("nav");
+          var navHeight = nav ? nav.offsetHeight : 70;
+          if (subnav) {
+            // offsetTop gives the subnav's distance from the top of the document.
+            // Scrolling to (subnavOffsetTop - navHeight) places the subnav
+            // exactly at its sticky position with work-tools visible below.
+            var scrollTarget = subnav.offsetTop - navHeight;
+            window.scrollTo({ top: scrollTarget, behavior: "instant" });
+          }
+        });
+      }
+      window.addEventListener("DOMContentLoaded", checkHashAndSwitch);
+      window.addEventListener("hashchange", checkHashAndSwitch);
+
+      function toggleProjectDrawer(projectId) {
+        var activePanel = document.querySelector(".tool-projects.active");
+        if (!activePanel) return;
+
+        var drawers = activePanel.querySelectorAll(".project-drawer");
+        var targetDrawer = activePanel.querySelector("#drawer-" + projectId);
+        var targetCard = activePanel.querySelector("[data-project='" + projectId + "']");
+
+        var isOpen = targetDrawer && targetDrawer.classList.contains("open");
+
+        // Close all open drawers — hide them after transition ends
+        drawers.forEach(function (drawer) {
+          if (drawer.classList.contains("open")) {
+            drawer.classList.remove("open");
+            // After CSS transition finishes, pull out of layout flow
+            var onTransitionEnd = function (event) {
+              if (event.propertyName === "max-height") {
+                if (!drawer.classList.contains("open")) {
+                  drawer.style.display = "none";
+                }
+                drawer.removeEventListener("transitionend", onTransitionEnd);
+              }
+            };
+            drawer.addEventListener("transitionend", onTransitionEnd);
+          }
+        });
+
+        // Remove active card highlights
+        activePanel.querySelectorAll(".pcard").forEach(function (card) {
+          card.classList.remove("active-card");
+        });
+
+        // Open the target drawer (if it wasn't already open)
+        if (targetDrawer && !isOpen) {
+          // Make it exist in the grid first (display:block), then animate
+          targetDrawer.style.display = "block";
+          // Force reflow so the transition fires
+          void targetDrawer.offsetHeight;
+          targetDrawer.classList.add("open");
+
+          if (targetCard) {
+            targetCard.classList.add("active-card");
+          }
+
+          // Scroll to drawer after it has expanded
+          setTimeout(function () {
+            var navHeight = document.getElementById("nav") ? document.getElementById("nav").offsetHeight : 0;
+            var elementPosition = targetDrawer.getBoundingClientRect().top + window.scrollY;
+            var offsetPosition = elementPosition - navHeight - 40;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }, 350);
+        }
+      }
+      window.toggleProjectDrawer = toggleProjectDrawer;
+
+      // Theme Toggle
+      window.toggleTheme = function () {
+        var html = document.documentElement;
+        var isDark = html.getAttribute("data-theme") === "dark";
+        html.setAttribute("data-theme", isDark ? "light" : "dark");
+        document.getElementById("themeIco").textContent = isDark ? "☾" : "☀";
+        document.getElementById("themeTxt").textContent = isDark ? "Dark" : "Light";
+      };
+
+      // Scroll Reveal
+      var revealEls = document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
+      );
+      var ro = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) e.target.classList.add("in");
+          });
+        },
+        { threshold: 0.15 }
+      );
+      revealEls.forEach(function (el) {
+        ro.observe(el);
+      });
+    </script>
+  </body>
+</html>

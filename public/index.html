@@ -1,589 +1,1454 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Oluchukwu Josiah Chikwendu — Graphics, Motion & UI/UX Designer crafting identities and bold digital experiences.">
-  <title>Oluchukwu Josiah — Designer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=GC GatuzoDemo:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <!-- ══════════════════════════════════════════
-       ANIMATION SECTION (400vh scroll container)
-       All hero UI is hidden inside here and
-       revealed at 98% scroll progress.
-  ══════════════════════════════════════════ -->
-  <div id="anim-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Oluchukwu Josiah Chikwendu — Graphics, Motion & UI/UX Designer crafting identities and bold digital experiences."
+    />
+    <title>Oluchukwu Josiah — Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAV — direct body child so z-index:9999 is unambiguously at root level -->
+    <nav id="nav" class="hero-overlay-el"></nav>
+    <script src="navbar.js"></script>
 
     <!-- Preloader -->
     <div id="preloader">
       <div class="pre-ring">
         <svg viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="50" fill="none" stroke="#fff" stroke-width="2" opacity="0.1"/>
-          <circle id="pre-arc" cx="60" cy="60" r="50" fill="none" stroke="#FF5C1F" stroke-width="2"
-            stroke-dasharray="0 314.159" stroke-linecap="round"/>
+          <circle
+            cx="60"
+            cy="60"
+            r="50"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            opacity="0.1"
+          />
+          <circle
+            id="pre-arc"
+            cx="60"
+            cy="60"
+            r="50"
+            fill="none"
+            stroke="#FF5C1F"
+            stroke-width="2"
+            stroke-dasharray="0 314.159"
+            stroke-linecap="round"
+          />
         </svg>
         <span id="pre-pct">0%</span>
       </div>
     </div>
 
-    <!-- NAV — outside animation container -->
-    <nav id="nav" class="hero-overlay-el">
-    <div class="logo" onclick="scrollTo({top:0,behavior:'smooth'})">
-        <img src="assets/svg/logo/h_logo_lightmode.svg" class="logo-light" alt="OJ Logo Light">
-        <img src="assets/svg/logo/h_logo_darkmode.svg" class="logo-dark" alt="OJ Logo Dark">
-    </div>
-    <div class="nav-r">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">
-        <span class="ico" id="themeIco">☀</span>
-        <span id="themeTxt">Light</span>
-        </button>
-    </div>
-    </nav>
+    <!-- ══════════════════════════════════════════
+        ANIMATION SECTION (400vh scroll container)
+        All hero UI is hidden inside here and
+        revealed at 98% scroll progress.
+    ══════════════════════════════════════════ -->
+    <div id="anim-container">
 
-    <!-- Sticky viewport — everything lives here -->
-    <div id="anim-sticky">
 
-      <!-- Canvas (animation frames) -->
-      <canvas id="hero-canvas"></canvas>
+      <!-- Sticky viewport — everything lives here -->
+      <div id="anim-sticky">
+        <!-- Canvas (animation frames) -->
+        <canvas id="hero-canvas"></canvas>
 
-      <!-- Pen PNG — centered, fades in at 98% -->
-      <div id="hero-pen" class="hero-overlay-el penscroll">
-        <img src="assets/images/Pen/pen-scroll-hook.png" alt="Pen">
-      </div>
-
-      <div id="hero-base" class="hero-overlay-el penbase">
-        <img src="assets/images/Pen/penbase-scroll-hook.png" alt="Pen">
-      </div>
-
-      <!-- Circle mask overlay (fades out at 22% scroll) -->
-      <div id="circle-mask">
-        <div id="circle-hole"></div>
-        <p id="circle-label">Scroll to zoom into the animation</p>
-      </div>
-
-      <!-- LEFT: Badge + Heading + Desc + CTA (hidden until 98%) -->
-      <div id="hero-left" class="hero-overlay-el">
-        <div class="hero-avail">
-          <span class="avail-dot"></span>
-          Available for full-time roles
+        <!-- Pen PNG — centered, fades in at 98% -->
+        <!-- Pen tunnel mask — circular hole at base insertion point -->
+        <div id="hero-pen" class="hero-overlay-el penscroll">
+          <img src="assets/images/Pen/pen-scroll-hook.png" alt="Pen" />
         </div>
-        <h1 class="hero-h">
-          Crafting Digital<br>Experiences<br>
-          <em>That Move People</em>
-        </h1>
-        <p class="hero-desc">
-          Turning bold ideas into unforgettable brands through<br>
-          Graphic Design, UI/UX and Motion.
+
+        <!-- Pen exit — reveals below base, moves in sync with hero-pen -->
+        <div id="hero-pen-exit" class="hero-overlay-el penscroll-exit">
+          <img src="assets/images/Pen/pen-scroll-hook.png" alt="Pen" />
+        </div>
+
+        <div id="hero-base" class="hero-overlay-el penbase">
+          <img src="assets/images/Pen/penbase-scroll-hook.png" alt="Pen" />
+        </div>
+
+        <div id="hero-bg" class="hero-overlay-el hero-bg">
+          <img src="assets/images/Pen/hero-background.png" alt="Hero Background" />
+        </div>
+
+        <!-- Circle mask overlay (fades out at 22% scroll) -->
+        <div id="circle-mask">
+          <div id="circle-hole"></div>
+          <p id="circle-label">Scroll to zoom into the animation</p>
+        </div>
+
+        <!-- LEFT: Badge + Heading + Desc + CTA (hidden until 98%) -->
+        <div id="hero-left" class="hero-overlay-el">
+          <div class="hero-avail">
+            <span class="avail-dot"></span>
+            Available for full-time roles
+          </div>
+          <h1 class="hero-h">
+            Crafting Digital<br />Experiences<br />
+            <em>That Move People</em>
+          </h1>
+          <p class="hero-desc">
+            Turning bold ideas into unforgettable brands through<br />
+            Graphic Design, UI/UX and Motion.
+          </p>
+          <div class="hero-cta">
+            <button
+              class="btn-acc"
+              onclick="
+                document
+                  .getElementById('work')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+            >
+              View Work
+            </button>
+            <button
+              class="btn-ghost"
+              onclick="
+                document
+                  .getElementById('contact')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+            >
+              Contact Me
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT: Stats vertical (hidden until 98%) -->
+        <div id="hero-right" class="hero-overlay-el">
+          <div class="hstat">
+            <div class="n">4<span>+</span></div>
+            <div class="l">Years Exp.</div>
+          </div>
+          <div class="hstat">
+            <div class="n">30<span>+</span></div>
+            <div class="l">Projects</div>
+          </div>
+          <div class="hstat">
+            <div class="n">3</div>
+            <div class="l">Disciplines</div>
+          </div>
+        </div>
+
+        <!-- SOCIAL PROOFS (hidden until 98%) -->
+        <!-- Card 1: Left -->
+        <div id="proof-1" class="proof-card hero-overlay-el">
+          <div class="proof-avatar" style="background: #ff5733">
+            <img src="assets/images/proof1.png" class="proof-img" />
+          </div>
+          <div class="proof-body">
+            <div class="proof-name">Sarah Chen</div>
+            <div class="proof-title">Creative Director, Nike</div>
+            <p class="proof-quote">
+              "Josiah delivered exceptional motion design and branding work that
+              exceeded our expectations."
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Right -->
+        <div id="proof-2" class="proof-card hero-overlay-el">
+          <div class="proof-avatar" style="background: #33d4ff">
+            <img src="assets/images/proof2.png" class="proof-img" />
+          </div>
+          <div class="proof-body">
+            <div class="proof-name">Michael Okoro</div>
+            <div class="proof-title">Founder, Vertex Studio</div>
+            <p class="proof-quote">
+              "Working with him transformed our product UI/UX. The attention to
+              detail and creativity is unmatched."
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Left -->
+        <div id="proof-3" class="proof-card hero-overlay-el">
+          <div class="proof-avatar" style="background: #8e44ad">
+            <img src="assets/images/proof3.png" class="proof-img" />
+          </div>
+          <div class="proof-body">
+            <div class="proof-name">Aisha Rahman</div>
+            <div class="proof-title">Head of Design, Lumora</div>
+            <p class="proof-quote">
+              "His ability to combine graphic design, UI/UX, and cinematic
+              motion is rare. Pure excellence."
+            </p>
+          </div>
+        </div>
+
+        <!-- TEXT BEATS (fade in/out during animation) -->
+        <div id="beat-a" class="beat">
+          <h2>Visual Identity</h2>
+          <p>Crafting marks that mean something.</p>
+        </div>
+        <div id="beat-b" class="beat beat-left">
+          <h3>UI / UX Design</h3>
+          <p>Interfaces that feel inevitable.</p>
+        </div>
+        <div id="beat-c" class="beat beat-right">
+          <h3>Cinematic Motion</h3>
+          <p>Every frame tells a story.</p>
+        </div>
+
+        <!-- SCROLL HINT -->
+        <div id="scroll-hint"></div>
+      </div>
+      <!-- /anim-sticky -->
+    </div>
+    <!-- /anim-container -->
+
+    <!-- ══════════════════════════════════════════
+        TICKER (below animation)
+    ══════════════════════════════════════════ -->
+    <div class="ticker">
+      <div class="tick-inner">
+        <span>UI/UX Design</span><span class="dot">·</span>
+        <span>Motion Graphics</span><span class="dot">·</span>
+        <span>Brand Identity</span><span class="dot">·</span>
+        <span>Visual Systems</span><span class="dot">·</span>
+        <span>Interaction Design</span><span class="dot">·</span>
+        <span>Design Systems</span><span class="dot">·</span>
+        <span>UI/UX Design</span><span class="dot">·</span>
+        <span>Motion Graphics</span><span class="dot">·</span>
+        <span>Brand Identity</span><span class="dot">·</span>
+        <span>Visual Systems</span><span class="dot">·</span>
+        <span>Interaction Design</span><span class="dot">·</span>
+        <span>Design Systems</span><span class="dot">·</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+        WORK
+    ══════════════════════════════════════════ -->
+    <section id="work">
+      <div class="mx">
+        <div class="work-hdr">
+          <div>
+            <div class="label reveal">Selected Work</div>
+            <h2 class="reveal d1">Projects that hit different</h2>
+          </div>
+        </div>
+
+        <div class="skill-project">
+          <!-- Skill Indicator-->
+          <div class="skills-tab">
+            <button
+              class="skills-tab-btn active"
+              onclick="openSkillTab(event, 'graphics')"
+            >
+              Graphics
+            </button>
+            <button
+              class="skills-tab-btn"
+              onclick="openSkillTab(event, 'uiUx')"
+            >
+              UI/UX
+            </button>
+            <button
+              class="skills-tab-btn"
+              onclick="openSkillTab(event, 'motion')"
+            >
+              Motion
+            </button>
+            <button
+              class="skills-tab-btn"
+              onclick="openSkillTab(event, 'webApp')"
+            >
+              Web/App
+            </button>
+          </div>
+          <div id="graphics" class="tool-projects active">
+            <div class="work-tools">
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/illustrator.svg" class="work-tool" />
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/photoshop.svg" class="work-tool" />
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/coreldraw.svg" class="work-tool" />
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/canva.svg" class="work-tool" />
+              </div>
+            </div>
+
+            <div class="pgrid reveal d2">
+              <div class="projects">
+                <div class="pcard">
+                  <div class="pthumb">
+                    <img src="assets/images/proof1.png" class="thumb-img" />
+                    <div class="thumb-overlay"></div>
+                    <div class="thumb-label">
+                      <div class="thumb-tag">Brand System</div>
+                      <label>Graphics</label>
+                    </div>
+                  </div>
+                  <div class="pbody">
+                    <div class="ptags">
+                      <span class="ptag">Brand Identity</span>
+                      <span class="ptag">Motion</span>
+                    </div>
+                    <div class="ptitle">Apex — Brand &amp; Motion System</div>
+                    <div class="pdesc">
+                      Complete visual identity for a fintech startup — logo,
+                      motion language, design system &amp; launch campaign.
+                    </div>
+                    <div class="parr">View case study →</div>
+                  </div>
+                </div>
+
+                <div class="pcard">
+                  <div class="pthumb">
+                    <div class="thumb-overlay"></div>
+                    <img src="assets/images/proof1.png" class="thumb-img" />
+                    <div class="thumb-label">
+                      <div class="thumb-tag">Brand System</div>
+                      <label>Graphics</label>
+                    </div>
+                  </div>
+                  <div class="pbody">
+                    <div class="ptags">
+                      <span class="ptag">Brand Identity</span>
+                      <span class="ptag">Motion</span>
+                    </div>
+                    <div class="ptitle">Apex — Brand &amp; Motion System</div>
+                    <div class="pdesc">
+                      Complete visual identity for a fintech startup — logo,
+                      motion language, design system &amp; launch campaign.
+                    </div>
+                    <div class="parr">View case study →</div>
+                  </div>
+                </div>
+
+                <a href="work.html#graphics" class="more-projects">
+                  <div class="pbtn">See More</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div id="uiUx" class="tool-projects">
+            <div class="work-tools">
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/figma.svg" class="work-tool" />
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/framer.svg" class="work-tool" />
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/webflow.svg" class="work-tool" />
+              </div>
+            </div>
+            <div class="pgrid reveal d2">
+              <div class="projects">
+                <div class="pcard">
+                  <div class="pthumb">
+                    <div class="thumb-overlay"></div>
+                    <img src="assets/images/proof2.png" class="thumb-img" />
+                    <div class="thumb-label">
+                      <div class="thumb-tag">App UI</div>
+                      <label>UI/UX</label>
+                    </div>
+                  </div>
+                  <div class="pbody">
+                    <div class="ptags">
+                      <span class="ptag">UI/UX</span
+                      ><span class="ptag">Mobile</span>
+                    </div>
+                    <div class="ptitle">Vela — Crypto Wallet App</div>
+                    <div class="pdesc">
+                      Functional, aesthetically pleasing dark and light mode
+                      wallet with deep micro-interaction detail.
+                    </div>
+                    <div class="parr">View project →</div>
+                  </div>
+                </div>
+
+                <div class="pcard">
+                  <div class="pthumb">
+                    <div class="thumb-overlay"></div>
+                    <img src="assets/images/proof2.png" class="thumb-img" />
+                    <div class="thumb-label">
+                      <div class="thumb-tag">App UI</div>
+                      <label>UI/UX</label>
+                    </div>
+                  </div>
+                  <div class="pbody">
+                    <div class="ptags">
+                      <span class="ptag">UI/UX</span
+                      ><span class="ptag">Mobile</span>
+                    </div>
+                    <div class="ptitle">Vela — Crypto Wallet App</div>
+                    <div class="pdesc">
+                      Functional, aesthetically pleasing dark and light mode
+                      wallet with deep micro-interaction detail.
+                    </div>
+                    <div class="parr">View project →</div>
+                  </div>
+                </div>
+
+                <a href="work.html#uiUx" class="more-projects">
+                  <div class="pbtn">See More</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div id="motion" class="tool-projects">
+            <div class="work-tools">
+              <div class="work-tool-box">
+                <img
+                  src="assets/svg/tools/after effect.svg"
+                  class="work-tool"
+                />
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/premierepro.svg" class="work-tool" />
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/capcut.svg" class="work-tool" />
+              </div>
+            </div>
+            <div class="pgrid reveal d2">
+              <div class="projects">
+                <div class="pcard">
+                  <div class="pthumb">
+                    <div class="thumb-overlay"></div>
+                    <img src="assets/images/proof3.png" class="thumb-img" />
+                    <div class="thumb-label">
+                      <div class="thumb-tag">Video Graphics</div>
+                      <label>Motion</label>
+                    </div>
+                  </div>
+                  <div class="pbody">
+                    <div class="ptags">
+                      <span class="ptag">Motion</span
+                      ><span class="ptag">After Effects</span>
+                    </div>
+                    <div class="ptitle">EcoTrack — Brand Film</div>
+                    <div class="pdesc">
+                      A 60-second informative animated explainer for a
+                      sustainability platform aimed at producing green housing.
+                    </div>
+                    <div class="parr">Watch →</div>
+                  </div>
+                </div>
+                <div class="pcard">
+                  <div class="pthumb">
+                    <div class="thumb-overlay"></div>
+                    <img src="assets/images/proof3.png" class="thumb-img" />
+                    <div class="thumb-label">
+                      <div class="thumb-tag">Video Graphics</div>
+                      <label>Motion</label>
+                    </div>
+                  </div>
+                  <div class="pbody">
+                    <div class="ptags">
+                      <span class="ptag">Motion</span
+                      ><span class="ptag">After Effects</span>
+                    </div>
+                    <div class="ptitle">EcoTrack — Brand Film</div>
+                    <div class="pdesc">
+                      A 60-second informative animated explainer for a
+                      sustainability platform aimed at producing green housing.
+                    </div>
+                    <div class="parr">Watch →</div>
+                  </div>
+                </div>
+
+                <a href="work.html#motion" class="more-projects">
+                  <div class="pbtn">See More</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- WEB/APP SECTION -->
+          <div id="webApp" class="tool-projects">
+            <div class="work-tools">
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/html5.svg" class="work-tool"/>
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/css3.svg" class="work-tool" />
+              </div>
+              <div class="work-tool-box">
+                <img src="assets/svg/tools/Javascript.svg" class="work-tool" />
+              </div>
+            </div>
+            <div class="pgrid reveal d2">
+              <div class="projects">
+                <div class="pcard">
+                  <div class="pthumb">
+                    <div class="thumb-overlay"></div>
+                    <img src="assets/images/proof1.png" class="thumb-img" />
+                    <div class="thumb-label">
+                      <div class="thumb-tag">Portfolio</div>
+                      <label>Web/App</label>
+                    </div>
+                  </div>
+                  <div class="pbody">
+                    <div class="ptags">
+                      <span class="ptag">Next.js</span
+                      ><span class="ptag">TypeScript</span>
+                    </div>
+                    <div class="ptitle">Portfolio — Personal Website</div>
+                    <div class="pdesc">
+                      A modern, responsive portfolio site showcasing design and development work with smooth animations.
+                    </div>
+                    <div class="parr">View project →</div>
+                  </div>
+                </div>
+                <div class="pcard">
+                  <div class="pthumb">
+                    <div class="thumb-overlay"></div>
+                    <img src="assets/images/proof2.png" class="thumb-img" />
+                    <div class="thumb-label">
+                      <div class="thumb-tag">Web App</div>
+                      <label>Web/App</label>
+                    </div>
+                  </div>
+                  <div class="pbody">
+                    <div class="ptags">
+                      <span class="ptag">React</span
+                      ><span class="ptag">API Integration</span>
+                    </div>
+                    <div class="ptitle">Analytics Platform — SaaS Dashboard</div>
+                    <div class="pdesc">
+                      A full-featured analytics dashboard with real-time data visualization and responsive design.
+                    </div>
+                    <div class="parr">View project →</div>
+                  </div>
+                </div>
+
+                <a href="work.html#webApp" class="more-projects">
+                  <div class="pbtn">See More</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+        ABOUT
+    ══════════════════════════════════════════ -->
+    <section id="about">
+      <div class="mx">
+        <div class="about-grid">
+          <div>
+            <div class="label reveal">About Me</div>
+            <h2 class="about-big reveal d1">
+              Designing with<br />intention &amp; edge
+            </h2>
+            <p class="about-p reveal d2">
+              I'm a multidisciplinary designer with a sharp eye for bold
+              aesthetics and a deep understanding of user experience. My work
+              spans brand identity, motion design, and digital interfaces.
+            </p>
+            <p class="about-p reveal d3">
+              Great design is felt before it's understood. Whether animating a
+              brand or architecting a product flow, I bring obsessive attention
+              to detail and a willingness to push beyond the expected.
+            </p>
+            <div class="discipline-row reveal d4">
+              <div class="disc">
+                <div class="disc-ic">◈</div>
+                <div class="disc-nm">UI / UX</div>
+                <div class="disc-sub">Interfaces</div>
+              </div>
+              <div class="disc">
+                <div class="disc-ic">◉</div>
+                <div class="disc-nm">Motion</div>
+                <div class="disc-sub">Animation</div>
+              </div>
+              <div class="disc">
+                <div class="disc-ic">◆</div>
+                <div class="disc-nm">Brand</div>
+                <div class="disc-sub">Identity</div>
+              </div>
+              <div class="disc">
+                <div class="disc-ic">◐</div>
+                <div class="disc-nm">Systems</div>
+                <div class="disc-sub">At scale</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="label reveal">Experience</div>
+            <div class="exp-list reveal d1">
+              <div class="exp-item">
+                <div>
+                  <div class="exp-role">Senior UI/UX Designer</div>
+                  <div class="exp-co">Freelance / Remote</div>
+                </div>
+                <div class="exp-yr">2022 – Now</div>
+              </div>
+              <div class="exp-item">
+                <div>
+                  <div class="exp-role">Motion &amp; Brand Designer</div>
+                  <div class="exp-co">Creative Studio</div>
+                </div>
+                <div class="exp-yr">2021 – 2022</div>
+              </div>
+              <div class="exp-item">
+                <div>
+                  <div class="exp-role">Graphic Designer</div>
+                  <div class="exp-co">Digital Agency</div>
+                </div>
+                <div class="exp-yr">2020 – 2021</div>
+              </div>
+            </div>
+            <div class="open-badge reveal d2">
+              <div class="ob-tag">Currently seeking</div>
+              <div class="ob-title">Full-time Design Role</div>
+              <div class="ob-sub">
+                Open to UI/UX, Brand, or Motion — remote or Lagos-based.
+              </div>
+              <div class="ob-pill">Open to work</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+        SKILLS
+    ══════════════════════════════════════════ -->
+    <section id="skills">
+      <div class="mx">
+        <div class="sk-grid">
+          <div>
+            <div class="label reveal">Proficiency</div>
+            <h2 class="sk-title reveal d1">Where I excel</h2>
+            <div id="sbars">
+              <div class="sbar reveal d2">
+                <div class="sbar-top">
+                  <span>UI / UX Design</span><b>95%</b>
+                </div>
+                <div class="track"><div class="fill" data-w="95"></div></div>
+              </div>
+              <div class="sbar reveal d3">
+                <div class="sbar-top"><span>Motion Design</span><b>90%</b></div>
+                <div class="track"><div class="fill" data-w="90"></div></div>
+              </div>
+              <div class="sbar reveal d4">
+                <div class="sbar-top">
+                  <span>Brand Identity</span><b>88%</b>
+                </div>
+                <div class="track"><div class="fill" data-w="88"></div></div>
+              </div>
+              <div class="sbar reveal d5">
+                <div class="sbar-top">
+                  <span>Graphic Design</span><b>92%</b>
+                </div>
+                <div class="track"><div class="fill" data-w="92"></div></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="label reveal">Tools</div>
+            <h2 class="sk-title reveal d1">My arsenal</h2>
+            <div class="tools reveal d2">
+              <div class="tool">Figma</div>
+              <div class="tool">After Effects</div>
+              <div class="tool">Illustrator</div>
+              <div class="tool">Photoshop</div>
+              <div class="tool">Premiere Pro</div>
+              <div class="tool">Cinema 4D</div>
+              <div class="tool">Framer</div>
+              <div class="tool">Lottie</div>
+              <div class="tool">Spline</div>
+              <div class="tool">Principle</div>
+              <div class="tool">Miro</div>
+              <div class="tool">Notion</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+        CONTACT
+    ══════════════════════════════════════════ -->
+    <section id="contact">
+      <div class="ct-wrap">
+        <div class="label reveal" style="justify-content: center">
+          Let's Talk
+        </div>
+        <h2 class="ct-big reveal d1">
+          Ready to create something<br />unforgettable?
+        </h2>
+        <p class="ct-sub reveal d2">
+          Actively looking for my next full-time role. If you need a designer
+          who cares deeply about craft — let's connect.
         </p>
-        <div class="hero-cta">
-          <button class="btn-acc" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
-          <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
+        <div class="ct-links reveal d3">
+          <a class="clink" href="mailto:oluchukwu@email.com">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            oluchukwu@email.com
+          </a>
+          <a
+            class="clink"
+            href="https://linkedin.com/in/"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+              />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            class="clink"
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+            Instagram
+          </a>
+        </div>
+        <div class="divider reveal"></div>
+        <form class="cform reveal d2" onsubmit="return false;">
+          <div class="ff">
+            <label>First name</label
+            ><input type="text" placeholder="Oluchukwu" />
+          </div>
+          <div class="ff">
+            <label>Last name</label><input type="text" placeholder="Josiah" />
+          </div>
+          <div class="ff">
+            <label>Email</label
+            ><input type="email" placeholder="you@company.com" />
+          </div>
+          <div class="ff">
+            <label>Phone</label><input type="tel" placeholder="+234 ..." />
+          </div>
+          <div class="ff full">
+            <label>Message</label
+            ><textarea
+              placeholder="Tell me about the role or project…"
+            ></textarea>
+          </div>
+          <button class="sbtn" type="submit">Send Message →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+        IMPROVED FOOTER (Negative Split Style)
+    ══════════════════════════════════════════ -->
+    <footer class="premium-footer">
+      <div class="footer-banner" data-words="Graphics, UI/UX, Web/App, Motion">
+        <!-- Bottom layer: Cream bg, dark text -->
+        <div class="banner-layer layer-bottom" aria-hidden="true">
+          <div class="banner-text">Graphics</div>
         </div>
       </div>
 
-      <!-- RIGHT: Stats vertical (hidden until 98%) -->
-      <div id="hero-right" class="hero-overlay-el">
-        <div class="hstat">
-          <div class="n">4<span>+</span></div>
-          <div class="l">Years Exp.</div>
-        </div>
-        <div class="hstat">
-          <div class="n">30<span>+</span></div>
-          <div class="l">Projects</div>
-        </div>
-        <div class="hstat">
-          <div class="n">3</div>
-          <div class="l">Disciplines</div>
-        </div>
-      </div>
+      <div class="footer-main">
+        <div class="footer-grid">
+          <!-- Col 1: Slogan + Form -->
+          <div class="fg-col brand-col">
+            <h3 class="f-slogan">Crafted with edge.<br>Built to outlive trends.</h3>
+            <p class="f-sub">Obsessive attention to detail. Blending brand-led design with high-fidelity digital execution.</p>
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Subscribed!');">
+              <input type="email" placeholder="type your email" required class="fn-input" />
+              <button type="submit" class="fn-btn" aria-label="Subscribe">
+                <img src="assets/svg/icons/arrow-right.svg" alt="Subscribe">
+              </button>
+            </form>
+            <div class="f-socials">
+              <a href="https://behance.net/josiahchikwendu" target="_blank" aria-label="Behance">Behance</a>
+              <a href="https://dribbble.com/josiahchikwendu" target="_blank" aria-label="Dribbble">Dribbble</a>
+              <a href="https://linked.com/in/josiahchikwendu" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+              <a href="https:instagram.com/josiahchikwendu" target="_blank" aria-label="Instagram">Instagram</a>
+            </div>
+          </div>
 
-      <!-- SOCIAL PROOFS (hidden until 98%) -->
-      <!-- Card 1: Left -->
-      <div id="proof-1" class="proof-card hero-overlay-el">
-        <div class="proof-avatar" style="background:#FF5733">
-            <img src="assets/images/proof1.png" class="proof-img">
-        </div>
-        <div class="proof-body">
-          <div class="proof-name">Sarah Chen</div>
-          <div class="proof-title">Creative Director, Nike</div>
-          <p class="proof-quote">"Josiah delivered exceptional motion design and branding work that exceeded our expectations."</p>
-        </div>
-      </div>
+          <!-- Col 2: Navigation -->
+          <div class="fg-col links-col">
+            <h4 class="f-col-title">Navigation</h4>
+            <ul class="f-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="work.html">Works</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#skills">Skills</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
 
-      <!-- Card 2: Right -->
-      <div id="proof-2" class="proof-card hero-overlay-el">
-        <div class="proof-avatar" style="background:#33D4FF">
-            <img src="assets/images/proof2.png" class="proof-img">
-        </div>
-        <div class="proof-body">
-          <div class="proof-name">Michael Okoro</div>
-          <div class="proof-title">Founder, Vertex Studio</div>
-          <p class="proof-quote">"Working with him transformed our product UI/UX. The attention to detail and creativity is unmatched."</p>
-        </div>
-      </div>
+          <!-- Col 3: Disciplines -->
+          <div class="fg-col links-col">
+            <h4 class="f-col-title">Support</h4>
+            <ul class="f-links">
+              <li><a href="work.html#graphics">Graphics</a></li>
+              <li><a href="work.html#uiUx">UI/UX</a></li>
+              <li><a href="work.html#motion">Motion</a></li>
+              <li><a href="work.html#webApp">Web/App Dev</a></li>
+            </ul>
+          </div>
 
-      <!-- Card 3: Left -->
-      <div id="proof-3" class="proof-card hero-overlay-el">
-        <div class="proof-avatar" style="background:#8E44AD">
-            <img src="assets/images/proof3.png" class="proof-img">
-        </div>
-        <div class="proof-body">
-          <div class="proof-name">Aisha Rahman</div>
-          <div class="proof-title">Head of Design, Lumora</div>
-          <p class="proof-quote">"His ability to combine graphic design, UI/UX, and cinematic motion is rare. Pure excellence."</p>
-        </div>
-      </div>
-
-      <!-- TEXT BEATS (fade in/out during animation) -->
-      <div id="beat-a" class="beat">
-        <h2>Visual Identity</h2>
-        <p>Crafting marks that mean something.</p>
-      </div>
-      <div id="beat-b" class="beat beat-left">
-        <h3>UI / UX Design</h3>
-        <p>Interfaces that feel inevitable.</p>
-      </div>
-      <div id="beat-c" class="beat beat-right">
-        <h3>Cinematic Motion</h3>
-        <p>Every frame tells a story.</p>
-      </div>
-
-      <!-- SCROLL HINT -->
-      <div id="scroll-hint">
-      </div>
-
-    </div><!-- /anim-sticky -->
-  </div><!-- /anim-container -->
-
-  <!-- ══════════════════════════════════════════
-       TICKER (below animation)
-  ══════════════════════════════════════════ -->
-  <div class="ticker">
-    <div class="tick-inner">
-      <span>UI/UX Design</span><span class="dot">·</span>
-      <span>Motion Graphics</span><span class="dot">·</span>
-      <span>Brand Identity</span><span class="dot">·</span>
-      <span>Visual Systems</span><span class="dot">·</span>
-      <span>Interaction Design</span><span class="dot">·</span>
-      <span>Design Systems</span><span class="dot">·</span>
-      <span>UI/UX Design</span><span class="dot">·</span>
-      <span>Motion Graphics</span><span class="dot">·</span>
-      <span>Brand Identity</span><span class="dot">·</span>
-      <span>Visual Systems</span><span class="dot">·</span>
-      <span>Interaction Design</span><span class="dot">·</span>
-      <span>Design Systems</span><span class="dot">·</span>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
-       WORK
-  ══════════════════════════════════════════ -->
-  <section id="work">
-    <div class="mx">
-      <div class="work-hdr">
-        <div>
-          <div class="label reveal">Selected Work</div>
-          <h2 class="reveal d1">Projects that hit different</h2>
-        </div>
-      </div>
-      <div class="skill-project">
-
-        <!-- Skill Indicator-->
-        <div class="skills">
-            <div class="skill-name active">Graphics</div>
-            <div class="skill-name">UI/UX</div>
-            <div class="skill-name">Motion</div>
-        </div>
-        <div class="tools">
-            <div class="tool1">
-                <img src="assets/images/tools/ai.png" class="tool-img">
+          <!-- Col 4: Badge & Contact -->
+          <div class="fg-col contact-col">
+            <h4 class="f-col-title">Material Focus</h4>
+            <p class="fc-info">Available for freelance &amp; full-time positions worldwide.</p>
+            <a href="mailto:josiahchikwendu@gmail.com" class="fc-email">josiahchikwendu@gmail.com</a>
+            
+            <div class="f-badge-wrap">
+              <svg class="f-badge-svg" viewBox="0 0 100 100" width="80" height="80">
+                <path id="badgePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                <text font-size="8" font-weight="600" fill="currentColor" letter-spacing="1">
+                  <textPath href="#badgePath">OLUCHUKWU JOSIAH • DESIGN & CODE • </textPath>
+                </text>
+              </svg>
+              <div class="f-badge-center">OJ</div>
             </div>
-            <div class="tool2">
-                <img src="assets/images/tools/ai.png" class="tool-img">
-            </div>
-            <div class="tool3">
-                <img src="assets/images/tools/ai.png" class="tool-img">
-            </div>
-        </div>
-        <div class="pgrid reveal d2">
-            <div class="pcard big">
-            <div class="pthumb"><div class="thumb-bg g1"></div><div class="thumb-overlay"></div><div class="thumb-lbl">Brand System</div></div>
-            <div class="pbody">
-                <div class="ptags"><span class="ptag a">Featured</span><span class="ptag">Brand Identity</span><span class="ptag">Motion</span></div>
-                <div class="ptitle">Apex — Brand Identity &amp; Motion System</div>
-                <div class="pdesc">Complete visual identity for a fintech startup — logo, motion language, design system &amp; launch campaign.</div>
-                <div class="parr">View case study →</div>
-            </div>
-            </div>
-            <div class="pcard">
-            <div class="pthumb"><div class="thumb-bg g2"></div><div class="thumb-overlay"></div><div class="thumb-lbl">App UI</div></div>
-            <div class="pbody">
-                <div class="ptags"><span class="ptag">UI/UX</span><span class="ptag">Mobile</span></div>
-                <div class="ptitle">Vela — Crypto Wallet App</div>
-                <div class="pdesc">Dark-mode wallet with deep micro-interaction detail.</div>
-                <div class="parr">View project →</div>
-            </div>
-            </div>
-            <div class="pcard">
-            <div class="pthumb"><div class="thumb-bg g3"></div><div class="thumb-overlay"></div><div class="thumb-lbl">Motion</div></div>
-            <div class="pbody">
-                <div class="ptags"><span class="ptag">Motion</span><span class="ptag">After Effects</span></div>
-                <div class="ptitle">EcoTrack — Brand Film</div>
-                <div class="pdesc">60-second animated explainer for a sustainability platform.</div>
-                <div class="parr">Watch →</div>
-            </div>
-            </div>
-            <div class="pcard">
-            <div class="pthumb"><div class="thumb-bg g4"></div><div class="thumb-overlay"></div><div class="thumb-lbl">System</div></div>
-            <div class="pbody">
-                <div class="ptags"><span class="ptag">Design System</span><span class="ptag">Figma</span></div>
-                <div class="ptitle">Nexus — Design System</div>
-                <div class="pdesc">400+ component library for a SaaS product with 3 brand tiers.</div>
-                <div class="parr">Explore →</div>
-            </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       ABOUT
-  ══════════════════════════════════════════ -->
-  <section id="about">
-    <div class="mx">
-      <div class="about-grid">
-        <div>
-          <div class="label reveal">About Me</div>
-          <h2 class="about-big reveal d1">Designing with<br>intention &amp; edge</h2>
-          <p class="about-p reveal d2">I'm a multidisciplinary designer with a sharp eye for bold aesthetics and a deep understanding of user experience. My work spans brand identity, motion design, and digital interfaces.</p>
-          <p class="about-p reveal d3">Great design is felt before it's understood. Whether animating a brand or architecting a product flow, I bring obsessive attention to detail and a willingness to push beyond the expected.</p>
-          <div class="discipline-row reveal d4">
-            <div class="disc"><div class="disc-ic">◈</div><div class="disc-nm">UI / UX</div><div class="disc-sub">Interfaces</div></div>
-            <div class="disc"><div class="disc-ic">◉</div><div class="disc-nm">Motion</div><div class="disc-sub">Animation</div></div>
-            <div class="disc"><div class="disc-ic">◆</div><div class="disc-nm">Brand</div><div class="disc-sub">Identity</div></div>
-            <div class="disc"><div class="disc-ic">◐</div><div class="disc-nm">Systems</div><div class="disc-sub">At scale</div></div>
           </div>
         </div>
-        <div>
-          <div class="label reveal">Experience</div>
-          <div class="exp-list reveal d1">
-            <div class="exp-item"><div><div class="exp-role">Senior UI/UX Designer</div><div class="exp-co">Freelance / Remote</div></div><div class="exp-yr">2022 – Now</div></div>
-            <div class="exp-item"><div><div class="exp-role">Motion &amp; Brand Designer</div><div class="exp-co">Creative Studio</div></div><div class="exp-yr">2021 – 2022</div></div>
-            <div class="exp-item"><div><div class="exp-role">Graphic Designer</div><div class="exp-co">Digital Agency</div></div><div class="exp-yr">2020 – 2021</div></div>
-          </div>
-          <div class="open-badge reveal d2">
-            <div class="ob-tag">Currently seeking</div>
-            <div class="ob-title">Full-time Design Role</div>
-            <div class="ob-sub">Open to UI/UX, Brand, or Motion — remote or Lagos-based.</div>
-            <div class="ob-pill">Open to work</div>
-          </div>
+
+        <div class="footer-bottom">
+          <div class="fb-copy">© 2026 Oluchukwu Josiah. Rooted in craft, refined through time.</div>
+          <button class="fb-totop" onclick="window.scrollTo({top:0, behavior:'smooth'});" aria-label="Back to top">
+            <span>Back to top</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════
-       SKILLS
-  ══════════════════════════════════════════ -->
-  <section id="skills">
-    <div class="mx">
-      <div class="sk-grid">
-        <div>
-          <div class="label reveal">Proficiency</div>
-          <h2 class="sk-title reveal d1">Where I excel</h2>
-          <div id="sbars">
-            <div class="sbar reveal d2"><div class="sbar-top"><span>UI / UX Design</span><b>95%</b></div><div class="track"><div class="fill" data-w="95"></div></div></div>
-            <div class="sbar reveal d3"><div class="sbar-top"><span>Motion Design</span><b>90%</b></div><div class="track"><div class="fill" data-w="90"></div></div></div>
-            <div class="sbar reveal d4"><div class="sbar-top"><span>Brand Identity</span><b>88%</b></div><div class="track"><div class="fill" data-w="88"></div></div></div>
-            <div class="sbar reveal d5"><div class="sbar-top"><span>Graphic Design</span><b>92%</b></div><div class="track"><div class="fill" data-w="92"></div></div></div>
-          </div>
-        </div>
-        <div>
-          <div class="label reveal">Tools</div>
-          <h2 class="sk-title reveal d1">My arsenal</h2>
-          <div class="tools reveal d2">
-            <div class="tool">Figma</div><div class="tool">After Effects</div><div class="tool">Illustrator</div>
-            <div class="tool">Photoshop</div><div class="tool">Premiere Pro</div><div class="tool">Cinema 4D</div>
-            <div class="tool">Framer</div><div class="tool">Lottie</div><div class="tool">Spline</div>
-            <div class="tool">Principle</div><div class="tool">Miro</div><div class="tool">Notion</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ══════════════════════════════════════════
+        SCRIPTS
+    ══════════════════════════════════════════ -->
+    <script>
+      (function () {
+        // ── CONFIG ──────────────────────────────────────────────
+        var FRAME_COUNT = 192;
+        var FRAME_DIR = "assets/images/hero-frames-webp/";
+        var FRAME_DELAY = "0.042s";
 
-  <!-- ══════════════════════════════════════════
-       CONTACT
-  ══════════════════════════════════════════ -->
-  <section id="contact">
-    <div class="ct-wrap">
-      <div class="label reveal" style="justify-content:center">Let's Talk</div>
-      <h2 class="ct-big reveal d1">Ready to create something<br>unforgettable?</h2>
-      <p class="ct-sub reveal d2">Actively looking for my next full-time role. If you need a designer who cares deeply about craft — let's connect.</p>
-      <div class="ct-links reveal d3">
-        <a class="clink" href="mailto:oluchukwu@email.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          oluchukwu@email.com
-        </a>
-        <a class="clink" href="https://linkedin.com/in/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a class="clink" href="https://instagram.com/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Instagram
-        </a>
-      </div>
-      <div class="divider reveal"></div>
-      <form class="cform reveal d2" onsubmit="return false">
-        <div class="ff"><label>First name</label><input type="text" placeholder="Oluchukwu"></div>
-        <div class="ff"><label>Last name</label><input type="text" placeholder="Josiah"></div>
-        <div class="ff"><label>Email</label><input type="email" placeholder="you@company.com"></div>
-        <div class="ff"><label>Phone</label><input type="tel" placeholder="+234 ..."></div>
-        <div class="ff full"><label>Message</label><textarea placeholder="Tell me about the role or project…"></textarea></div>
-        <button class="sbtn" type="submit">Send Message →</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════════ -->
-  <footer>
-    <div class="fname">OJ<span>.</span> Oluchukwu Josiah</div>
-    <div class="fcopy">© 2026 — Crafted with intention</div>
-  </footer>
-
-  <!-- ══════════════════════════════════════════
-       SCRIPTS
-  ══════════════════════════════════════════ -->
-  <script>
-  (function () {
-
-    // ── CONFIG ──────────────────────────────────────────────
-    var FRAME_COUNT = 192;
-    var FRAME_DIR   = 'assets/images/hero-frames-webp/';
-    var FRAME_DELAY = '0.042s';
-
-    function getFramePath(i) {
-      var p = i.toString().padStart(3, '0');
-      return FRAME_DIR + 'frame_' + p + '_delay-' + FRAME_DELAY + '.webp';
-    }
-
-    // ── ELEMENTS ────────────────────────────────────────────
-    var container   = document.getElementById('anim-container');
-    var canvas      = document.getElementById('hero-canvas');
-    var ctx         = canvas.getContext('2d');
-    var preloader   = document.getElementById('preloader');
-    var preArc      = document.getElementById('pre-arc');
-    var prePct      = document.getElementById('pre-pct');
-    var circleMask  = document.getElementById('circle-mask');
-    var scrollHint  = document.getElementById('scroll-hint');
-    var beatA       = document.getElementById('beat-a');
-    var beatB       = document.getElementById('beat-b');
-    var beatC       = document.getElementById('beat-c');
-    var overlayEls  = document.querySelectorAll('.hero-overlay-el');
-
-    // ── STATE ───────────────────────────────────────────────
-    var images      = new Array(FRAME_COUNT).fill(null);
-    var loaded      = 0;
-    var isReady     = false;
-    var revealed    = false;
-
-    // ── CANVAS SETUP ────────────────────────────────────────
-    function resizeCanvas() {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', function () {
-      resizeCanvas();
-      drawFrame(currentFrame());
-    });
-
-    // ── DRAW ────────────────────────────────────────────────
-    function drawFrame(idx) {
-      var img = images[idx];
-      if (!img || !img.complete || img.naturalWidth === 0) return;
-      var W = canvas.width, H = canvas.height;
-      var scale = Math.max(W / img.naturalWidth, H / img.naturalHeight);
-      var x = (W - img.naturalWidth  * scale) / 2;
-      var y = (H - img.naturalHeight * scale) / 2;
-      ctx.clearRect(0, 0, W, H);
-      ctx.drawImage(img, x, y, img.naturalWidth * scale, img.naturalHeight * scale);
-    }
-
-    function currentFrame() {
-      var prog = scrollProgress();
-      // Animation starts at 22% scroll, ends at 100%
-      if (prog < 0.22) return 0;
-      return Math.min(FRAME_COUNT - 1,
-        Math.floor(((prog - 0.22) / 0.78) * FRAME_COUNT));
-    }
-
-    // ── SCROLL PROGRESS (0–1 within anim-container) ─────────
-    function scrollProgress() {
-      var rect   = container.getBoundingClientRect();
-      var total  = container.offsetHeight - window.innerHeight;
-      var scrolled = -rect.top;
-      return Math.max(0, Math.min(1, scrolled / total));
-    }
-
-    // ── PRELOAD ─────────────────────────────────────────────
-    function preload() {
-      var CONCURRENCY = 6;
-      var queue = [];
-      for (var i = 0; i < FRAME_COUNT; i++) queue.push(i);
-
-      function loadNext() {
-        if (queue.length === 0) return;
-        var idx = queue.shift();
-        var img = new Image();
-        img.onload = img.onerror = function () {
-          images[idx] = img;
-          loaded++;
-          // Update preloader arc
-          var pct = Math.floor((loaded / FRAME_COUNT) * 100);
-          var dash = (pct / 100) * 314.159;
-          preArc.setAttribute('stroke-dasharray', dash + ' 314.159');
-          prePct.textContent = pct + '%';
-
-          if (loaded === FRAME_COUNT) {
-            onAllLoaded();
-          } else {
-            loadNext();
-          }
-        };
-        img.src = getFramePath(idx);
-      }
-
-      for (var c = 0; c < CONCURRENCY; c++) loadNext();
-    }
-
-    function onAllLoaded() {
-      isReady = true;
-      // Hide preloader
-      preloader.style.transition = 'opacity 0.5s';
-      preloader.style.opacity = '0';
-      setTimeout(function () { preloader.style.display = 'none'; }, 500);
-      // Draw frame 0
-      drawFrame(0);
-      // Show circle mask
-      circleMask.style.opacity = '1';
-      // Start scroll listener
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    }
-
-    // ── SCROLL HANDLER ──────────────────────────────────────
-    function onScroll() {
-      if (!isReady) return;
-      var prog = scrollProgress();
-
-      // Draw current frame
-      drawFrame(currentFrame());
-
-      // Circle expands from 130px → 150% between 0–22% scroll
-      var radius = prog < 0.22
-        ? (130 + ((prog / 0.22) * (window.innerWidth * 1.5 - 130))) + 'px'
-        : '150%';
-      canvas.style.clipPath = 'circle(' + radius + ' at 50% 50%)';
-
-      // Fade label with circle
-      var labelOp = Math.max(0, 1 - (prog / 0.02));
-      document.getElementById('circle-label').style.opacity = labelOp;
-
-      // Scroll hint: visible 0–10%
-      scrollHint.style.opacity = Math.max(0, 1 - prog / 0.1);
-
-      // Beat A: 10–25%
-      beatA.style.opacity = prog < 0.1 ? 0
-        : prog < 0.1 ? (prog - 0.1) / 0.05
-        : prog < 0.25 ? 1
-        : prog < 0.25  ? 1 - (prog - 0.2) / 0.05 : 0;
-      beatA.style.transform = 'translateY(' + (prog < 0.1 ? (1 - (prog - 0.1) / 0.05) * 20 : prog > 0.2 ? ((prog - 0.20) / 0.05) * 20 : 0) + 'px)';
-
-      // Beat B: 35–55%
-      beatB.style.opacity = prog < 0.35 ? 0
-        : prog < 0.4  ? (prog - 0.35) / 0.05
-        : prog < 0.5  ? 1
-        : prog < 0.55 ? 1 - (prog - 0.5) / 0.05 : 0;
-
-      // Beat C: 60–80%
-      beatC.style.opacity = prog < 0.6  ? 0
-        : prog < 0.65 ? (prog - 0.6) / 0.05
-        : prog < 0.75 ? 1
-        : prog < 0.8  ? 1 - (prog - 0.75) / 0.05 : 0;
-
-      // At 100%: reveal all overlay elements
-      if (prog >= 1.0 && !revealed) {
-        revealed = true;
-        overlayEls.forEach(function (el) {
-          el.classList.add('visible');
-        });
-      } else if (prog < 0.97 && revealed) {
-        revealed = false;
-        overlayEls.forEach(function (el) {
-          el.classList.remove('visible');
-        });
-      }
-    }
-
-    // ── THEME ───────────────────────────────────────────────
-    window.toggleTheme = function () {
-      var html   = document.documentElement;
-      var isDark = html.getAttribute('data-theme') === 'dark';
-      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      document.getElementById('themeIco').textContent = isDark ? '☾' : '☀';
-      document.getElementById('themeTxt').textContent = isDark ? 'Dark' : 'Light';
-    };
-
-    // ── SCROLL REVEAL (below animation) ─────────────────────
-    var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    var ro = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) e.target.classList.add('in');
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(function (el) { ro.observe(el); });
-
-    // Skill bars
-    var bo = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.fill').forEach(function (f) {
-            f.style.width = f.dataset.w + '%';
-          });
-          bo.disconnect();
+        function getFramePath(i) {
+          var p = i.toString().padStart(3, "0");
+          return FRAME_DIR + "frame_" + p + "_delay-" + FRAME_DELAY + ".webp";
         }
-      });
-    }, { threshold: 0.3 });
-    var sb = document.getElementById('sbars');
-    if (sb) bo.observe(sb);
 
-    // Smooth nav links
-    document.querySelectorAll('nav a').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        var t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
+        // ── ELEMENTS ────────────────────────────────────────────
+        var container = document.getElementById("anim-container");
+        var canvas = document.getElementById("hero-canvas");
+        var ctx = canvas.getContext("2d");
+        var preloader = document.getElementById("preloader");
+        var preArc = document.getElementById("pre-arc");
+        var prePct = document.getElementById("pre-pct");
+        var circleMask = document.getElementById("circle-mask");
+        var scrollHint = document.getElementById("scroll-hint");
+        var beatA = document.getElementById("beat-a");
+        var beatB = document.getElementById("beat-b");
+        var beatC = document.getElementById("beat-c");
+        var overlayEls = document.querySelectorAll(".hero-overlay-el");
 
-    // ── START ───────────────────────────────────────────────
-    preload();
+        // ── STATE ───────────────────────────────────────────────
+        var images = new Array(FRAME_COUNT).fill(null);
+        var loaded = 0;
+        var isReady = false;
+        var revealed = false;
 
-  })();
-  </script>
+        // ── CANVAS SETUP ────────────────────────────────────────
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener("resize", function () {
+          resizeCanvas();
+          drawFrame(currentFrame());
+        });
 
-</body>
+        // ── DRAW ────────────────────────────────────────────────
+        function drawFrame(idx) {
+          var img = images[idx];
+          if (!img || !img.complete || img.naturalWidth === 0) return;
+          var W = canvas.width,
+            H = canvas.height;
+          var scale = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+          var x = (W - img.naturalWidth * scale) / 2;
+          var y = (H - img.naturalHeight * scale) / 2;
+          ctx.clearRect(0, 0, W, H);
+          ctx.drawImage(
+            img,
+            x,
+            y,
+            img.naturalWidth * scale,
+            img.naturalHeight * scale,
+          );
+        }
+
+        function currentFrame() {
+          var prog = scrollProgress();
+          // Animation runs smoothly from 0% scroll to 100%
+          return Math.min(
+            FRAME_COUNT - 1,
+            Math.floor(prog * FRAME_COUNT)
+          );
+        }
+
+        // ── SCROLL PROGRESS (0–1 within anim-container) ─────────
+        function scrollProgress() {
+          var rect = container.getBoundingClientRect();
+          var total = container.offsetHeight - window.innerHeight;
+          var scrolled = -rect.top;
+          return Math.max(0, Math.min(1, scrolled / total));
+        }
+
+        // ── PRELOAD ─────────────────────────────────────────────
+        function preload() {
+          var CONCURRENCY = 6;
+          var queue = [];
+          for (var i = 0; i < FRAME_COUNT; i++) queue.push(i);
+
+          function loadNext() {
+            if (queue.length === 0) return;
+            var idx = queue.shift();
+            var img = new Image();
+            img.onload = img.onerror = function () {
+              images[idx] = img;
+              loaded++;
+              // Update preloader arc
+              var pct = Math.floor((loaded / FRAME_COUNT) * 100);
+              var dash = (pct / 100) * 314.159;
+              preArc.setAttribute("stroke-dasharray", dash + " 314.159");
+              prePct.textContent = pct + "%";
+
+              if (loaded === FRAME_COUNT) {
+                onAllLoaded();
+              } else {
+                loadNext();
+              }
+            };
+            img.src = getFramePath(idx);
+          }
+
+          for (var c = 0; c < CONCURRENCY; c++) loadNext();
+        }
+
+        function onAllLoaded() {
+          isReady = true;
+
+          var shouldSkipIntro = window.location.hash === "#finished";
+
+          if (shouldSkipIntro) {
+            // Instantly hide preloader and circle mask
+            preloader.style.display = "none";
+            circleMask.style.display = "none";
+            canvas.style.clipPath = "circle(150% at 50% 50%)";
+
+            // Scroll immediately to the end of anim-container
+            var totalScroll = container.offsetHeight - window.innerHeight;
+            window.scrollTo(0, totalScroll);
+
+            // Enable scroll listener and draw current frame
+            window.addEventListener("scroll", onScroll, { passive: true });
+            onScroll();
+            return;
+          }
+
+          // Hide preloader
+          preloader.style.transition = "opacity 0.5s";
+          preloader.style.opacity = "0";
+          setTimeout(function () {
+            preloader.style.display = "none";
+          }, 500);
+
+          // Draw frame 0
+          drawFrame(0);
+
+          // Show circle mask initially (clipped to 130px as in CSS)
+          circleMask.style.opacity = "1";
+
+          // Wait a short moment for preloader to clear, then trigger automatic zoom-out
+          setTimeout(function () {
+            // Smoothly expand the canvas clip-path viewport (circular mask zoom-out)
+            canvas.style.transition = "clip-path 1.5s cubic-bezier(0.25, 1, 0.3, 1)";
+            canvas.style.clipPath = "circle(150% at 50% 50%)";
+
+            // Smoothly fade out the vignette overlay and the instructions text
+            circleMask.style.transition = "opacity 1.2s ease-out";
+            circleMask.style.opacity = "0";
+
+            // Clean up and bind standard scroll listener once intro zoom finishes
+            setTimeout(function () {
+              canvas.style.transition = "none";
+              circleMask.style.display = "none";
+
+              // Enable scroll listener
+              window.addEventListener("scroll", onScroll, { passive: true });
+              onScroll();
+            }, 1500);
+          }, 600);
+        }
+
+        // ── SCROLL HANDLER ──────────────────────────────────────
+        function onScroll() {
+          if (!isReady) return;
+          var prog = scrollProgress();
+
+          // Draw current frame
+          drawFrame(currentFrame());
+
+          // Scroll hint: visible 0–10%
+          scrollHint.style.opacity = Math.max(0, 1 - prog / 0.1);
+
+          // Beat A: 10–25%
+          beatA.style.opacity =
+            prog < 0.1
+              ? 0
+              : prog < 0.1
+                ? (prog - 0.1) / 0.05
+                : prog < 0.25
+                  ? 1
+                  : prog < 0.25
+                    ? 1 - (prog - 0.2) / 0.05
+                    : 0;
+          beatA.style.transform =
+            "translateY(" +
+            (prog < 0.1
+              ? (1 - (prog - 0.1) / 0.05) * 20
+              : prog > 0.2
+                ? ((prog - 0.2) / 0.05) * 20
+                : 0) +
+            "px)";
+
+          // Beat B: 35–55%
+          beatB.style.opacity =
+            prog < 0.35
+              ? 0
+              : prog < 0.4
+                ? (prog - 0.35) / 0.05
+                : prog < 0.5
+                  ? 1
+                  : prog < 0.55
+                    ? 1 - (prog - 0.5) / 0.05
+                    : 0;
+
+          // Beat C: 60–80%
+          beatC.style.opacity =
+            prog < 0.6
+              ? 0
+              : prog < 0.65
+                ? (prog - 0.6) / 0.05
+                : prog < 0.75
+                  ? 1
+                  : prog < 0.8
+                    ? 1 - (prog - 0.75) / 0.05
+                    : 0;
+
+          // At 100%: reveal all overlay elements
+          var sticky = document.getElementById("anim-sticky");
+          var nav = document.getElementById("nav");
+
+          if (prog >= 1.0 && !revealed) {
+            revealed = true;
+            overlayEls.forEach(function (el) {
+              el.classList.add("visible");
+            });
+
+            // Push hero down so nav doesn't cover it
+            if (sticky && nav) {
+              var navH = nav.offsetHeight || 75;
+              sticky.style.transformOrigin = "top center";
+              sticky.style.transition =
+                "transform 0.5s cubic-bezier(.4,0,.2,1)";
+              sticky.style.transform =
+                "translateY(" + navH + "px)";
+            }
+          } else if (prog < 0.97 && revealed) {
+            revealed = false;
+            overlayEls.forEach(function (el) {
+              el.classList.remove("visible");
+            });
+
+            // Revert hero transform
+            if (sticky) {
+              sticky.style.transform = "translateY(0px)";
+            }
+          }
+
+          // ── PEN PHASE 2 (scroll into work section) ──────────────
+          // Triggered when #work's "Selected Work" label enters viewport.
+          // Phase A (0→0.5t): pen moves straight DOWN, scale 1→0.9
+          //   — appears to pass through the base vertically
+          // Phase B (0.5→1t): pen moves LEFT into work-tools column,
+          //   settles above work-tool-box items
+
+          var penEl = document.getElementById("hero-pen"); // .penscroll wrapper
+          var baseEl = document.getElementById("hero-base"); // .penbase wrapper
+          var workEl = document.getElementById("work");
+          var wtEl = document.querySelector(".skills-tab"); // Use fixed reference
+
+          if (penEl && workEl && wtEl && baseEl) {
+            var workRect = workEl.getBoundingClientRect();
+            // Start animating when top of #work is within 80% of viewport
+            var triggerPoint = window.innerHeight * 0.8;
+
+            if (workRect.top <= triggerPoint) {
+              // t = 0 when work section just enters, 1 when work-tools top is near nav
+              var wtRect = wtEl.getBoundingClientRect();
+              var navHeight = 64;
+              var totalDist = Math.max(1, triggerPoint - (navHeight + 100));
+              var traveled = triggerPoint - workRect.top;
+              var t = Math.min(1, Math.max(0, traveled / totalDist));
+
+              // Easing: ease-in-out
+              var ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+              // Allow pen to overflow sticky container
+              document.getElementById("anim-sticky").style.overflow = "visible";
+
+              // ── PHASE A (t 0→0.5): move DOWN only, scale 1→0.9 ──
+              // Target for phase A: center X stays, Y moves down by
+              // the distance from hero center to work-tools top area
+              var heroRect = document
+                .getElementById("anim-sticky")
+                .getBoundingClientRect();
+              var heroCenterX = heroRect.left + heroRect.width / 2;
+              var heroCenterY = heroRect.top + heroRect.height / 2;
+
+              var vCenterX = window.innerWidth / 2;
+              var vCenterY = window.innerHeight / 2;
+
+              var startX = heroCenterX - vCenterX;
+              var startY = heroCenterY - vCenterY;
+
+              // ── Target sizing: pen top = skills-tab top, pen tip = first work-tool-box top ──
+              var baseRect = baseEl.getBoundingClientRect();
+              var H = window.innerHeight;
+              var y_insert = baseRect.top + 0.775 * baseRect.height;
+              var y_exit = baseRect.top + 0.94 * baseRect.height;
+
+              // Natural pen height in viewport pixels at scale = 1
+              var unscaledLength = y_insert - startY;
+
+              // Measure reference elements in the current viewport
+              var stEl = document.querySelector(".skills-tab");
+              var stRect = stEl ? stEl.getBoundingClientRect() : null;
+              var firstBox = document.querySelector(".tool-projects.active .work-tool-box") || document.querySelector(".work-tool-box");
+              var firstBoxRect = firstBox ? firstBox.getBoundingClientRect() : null;
+
+              // Desired pen top  = top of .skills-tab ("Graphics" label level)
+              // Desired pen tip  = top of first .work-tool-box (gap boundary)
+              var penTopTarget = stRect ? stRect.top : 64;
+              var penTipTarget = firstBoxRect ? firstBoxRect.top : penTopTarget + 300;
+
+              // Scale so the pen's natural height spans exactly that gap
+              var targetScale = (penTipTarget - penTopTarget) / unscaledLength;
+              var isMobileView = window.innerWidth <= 768;
+
+              if (isMobileView) {
+                targetScale = 0.45;
+              }
+
+              // End Y: places the scaled pen's visual top at penTopTarget
+              // (pen top in viewport = vCenterY*(1-s) + ty, set equal to penTopTarget)
+              var endY = penTopTarget - vCenterY + vCenterY * targetScale;
+
+              // End X: centre of the work-tools sidebar column on desktop, gap on mobile
+              var endX = startX;
+              if (isMobileView) {
+                var card1 = document.querySelector(".tool-projects.active .pcard:nth-child(1)");
+                var card2 = document.querySelector(".tool-projects.active .pcard:nth-child(2)");
+                if (card1 && card2) {
+                  var r1 = card1.getBoundingClientRect();
+                  var r2 = card2.getBoundingClientRect();
+                  var gapCenterX = (r1.right + r2.left) / 2;
+                  var gapCenterY = (r1.top + r1.bottom) / 2;
+                  
+                  endX = gapCenterX - vCenterX;
+                  endY = gapCenterY - vCenterY;
+                } else {
+                  endX = 0;
+                  endY = 100;
+                }
+              } else {
+                var wtColEl = document.querySelector(".tool-projects.active .work-tools") || document.querySelector(".work-tools");
+                var wtColRect = wtColEl ? wtColEl.getBoundingClientRect() : null;
+                endX = wtColRect ? (wtColRect.left + wtColRect.width / 2 - vCenterX) : startX;
+              }
+
+              var penExitEl = document.getElementById("hero-pen-exit");
+
+              // Move to body to escape #anim-sticky's transform context
+              // This makes position: fixed truly fixed to the viewport
+              if (penEl.parentNode !== document.body) {
+                document.body.appendChild(penEl);
+                document.body.appendChild(penExitEl);
+                penEl.style.zIndex = "200";
+                penExitEl.style.zIndex = "200";
+              }
+
+              // Fixed positioning to eliminate scroll jitter
+              penEl.style.position = "fixed";
+              penExitEl.style.position = "fixed";
+
+              // Dynamically adjust clip-paths to stay locked to the base's position
+              penEl.style.clipPath = "inset(0px 0px " + Math.max(0, H - y_insert) + "px 0px)";
+              penExitEl.style.clipPath = "inset(" + Math.max(0, y_exit) + "px -9999px -9999px -9999px)";
+
+              var t_clear = 0.25; // Point at which the pen clears the base
+              // Calculate the exact yMove translation needed for the top of the pen to clear y_exit (with 20px padding)
+              var y_clear = y_exit - vCenterY + (vCenterY * targetScale) + 20;
+
+              var xMove, yMove, scale;
+              if (t <= t_clear) {
+                // Phase 1: Pen slides straight down and scales down until the top of the pen is out of the base
+                var tY = t / t_clear;
+                var easeY1 = tY < 0.5 ? 2 * tY * tY : -1 + (4 - 2 * tY) * tY;
+                xMove = startX;
+                yMove = startY + (y_clear - startY) * easeY1;
+                scale = 1.0 - (1.0 - targetScale) * easeY1;
+              } else {
+                // Phase 2: Pen moves diagonally to the work-tools column at the target scale
+                var tX = (t - t_clear) / (1 - t_clear);
+                var easeDiag = tX < 0.5 ? 2 * tX * tX : -1 + (4 - 2 * tX) * tX;
+                xMove = startX + (endX - startX) * easeDiag;
+                yMove = y_clear + (endY - y_clear) * easeDiag;
+                scale = targetScale;
+              }
+
+              penEl.querySelector("img").style.transform = "translate(" + xMove + "px, " + yMove + "px) scale(" + scale + ")";
+              penExitEl.querySelector("img").style.transform = "translate(" + xMove + "px, " + yMove + "px) scale(" + scale + ")";
+            } else {
+              // Work section not yet in view — reset pen to hero position
+              var animSticky = document.getElementById("anim-sticky");
+              animSticky.style.overflow = "hidden";
+              
+              var penExitEl = document.getElementById("hero-pen-exit");
+              if (penEl.parentNode === document.body) {
+                animSticky.appendChild(penEl);
+                animSticky.appendChild(penExitEl);
+                penEl.style.zIndex = "";
+                penExitEl.style.zIndex = "";
+              }
+
+              penEl.style.position = "absolute";
+              penExitEl.style.position = "absolute";
+              penEl.querySelector("img").style.transform = "";
+              penExitEl.querySelector("img").style.transform = "";
+              penEl.style.clipPath = "";
+              penExitEl.style.clipPath = "";
+            }
+          }
+
+          // ── WORK TABS SCROLL ──────────────────────────────────────
+          if (workEl) {
+            var wRect = workEl.getBoundingClientRect();
+            // The section is 300vh tall (or 180vh on mobile). It becomes sticky when wRect.top <= 0.
+            // The total sticky scroll distance is height - window.innerHeight
+            var stickyDist = workEl.offsetHeight - window.innerHeight;
+            if (
+              stickyDist > 0 &&
+              wRect.top <= 0 &&
+              wRect.bottom >= window.innerHeight
+            ) {
+              // Calculate progress (0 to 1) while #work is sticky
+              var p = Math.max(0, Math.min(1, -wRect.top / stickyDist));
+
+              var tabId = "graphics";
+              var btnIndex = 0;
+              if (p > 0.25 && p <= 0.5) {
+                tabId = "uiUx";
+                btnIndex = 1;
+              } else if (p > 0.5 && p <= 0.75) {
+                tabId = "motion";
+                btnIndex = 2;
+              } else if (p > 0.75) {
+                tabId = "webApp";
+                btnIndex = 3;
+              }
+
+              var activeTab = document.querySelector(".tool-projects.active");
+              if (!activeTab || activeTab.id !== tabId) {
+                // Switch tabs
+                document
+                  .querySelectorAll(".skills-tab-btn")
+                  .forEach(function (btn, idx) {
+                    if (idx === btnIndex) btn.classList.add("active");
+                    else btn.classList.remove("active");
+                  });
+                document
+                  .querySelectorAll(".tool-projects")
+                  .forEach(function (tp) {
+                    var proj = tp.querySelector(".projects");
+                    if (tp.id === tabId) {
+                      tp.classList.add("active");
+                      if (proj) proj.style.transform = "translateX(0px)";
+                    } else {
+                      tp.classList.remove("active");
+                      if (proj) proj.style.transform = "";
+                    }
+                  });
+                activeTab = document.getElementById(tabId);
+              }
+
+              // Apply horizontal scroll animation on mobile views
+              if (window.innerWidth <= 768 && activeTab) {
+                var proj = activeTab.querySelector(".projects");
+                if (proj) {
+                  var startRange = btnIndex * 0.25;
+                  var endRange = startRange + 0.25;
+                  var tabProgress = (p - startRange) / (endRange - startRange);
+                  tabProgress = Math.max(0, Math.min(1, tabProgress));
+
+                  var viewportWidth = proj.parentElement ? proj.parentElement.clientWidth : window.innerWidth;
+                  var maxScroll = proj.scrollWidth - viewportWidth;
+                  if (maxScroll > 0) {
+                    var translateX = -maxScroll * tabProgress;
+                    proj.style.transform = "translateX(" + translateX + "px)";
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // ── THEME ───────────────────────────────────────────────
+        window.toggleTheme = function () {
+          var html = document.documentElement;
+          var isDark = html.getAttribute("data-theme") === "dark";
+          html.setAttribute("data-theme", isDark ? "light" : "dark");
+          document.getElementById("themeIco").textContent = isDark ? "☾" : "☀";
+          document.getElementById("themeTxt").textContent = isDark
+            ? "Dark"
+            : "Light";
+        };
+
+        // ── SCROLL REVEAL (below animation) ─────────────────────
+        var revealEls = document.querySelectorAll(
+          ".reveal, .reveal-left, .reveal-right",
+        );
+        var ro = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) e.target.classList.add("in");
+            });
+          },
+          { threshold: 0.15 },
+        );
+        revealEls.forEach(function (el) {
+          ro.observe(el);
+        });
+
+        // Skill bars
+        var bo = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.querySelectorAll(".fill").forEach(function (f) {
+                  f.style.width = f.dataset.w + "%";
+                });
+                bo.disconnect();
+              }
+            });
+          },
+          { threshold: 0.3 },
+        );
+        var sb = document.getElementById("sbars");
+        if (sb) bo.observe(sb);
+
+        // Smooth nav links
+        document.querySelectorAll("nav a").forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            var t = document.querySelector(a.getAttribute("href"));
+            if (t) {
+              e.preventDefault();
+              t.scrollIntoView({ behavior: "smooth" });
+            }
+          });
+        });
+
+        // ── START ───────────────────────────────────────────────
+        preload();
+      })();
+
+      function openSkillTab(evt, tabId) {
+        var btnIndex = 0;
+        if (tabId === "uiUx") btnIndex = 1;
+        else if (tabId === "motion") btnIndex = 2;
+        else if (tabId === "webApp") btnIndex = 3;
+
+        var workEl = document.getElementById("work");
+        if (workEl) {
+          var stickyDist = workEl.offsetHeight - window.innerHeight;
+          if (stickyDist > 0) {
+            // Scroll-driven transition for both desktop and mobile
+            var targetProg = btnIndex === 0 ? 0.05 : btnIndex === 1 ? 0.35 : btnIndex === 2 ? 0.6 : 0.85;
+
+            var targetScroll =
+              (window.scrollY || document.documentElement.scrollTop) +
+              workEl.getBoundingClientRect().top +
+              stickyDist * targetProg;
+            window.scrollTo({ top: targetScroll, behavior: "smooth" });
+          } else {
+            // Fallback: switch tabs instantly if not scrollable
+            document
+              .querySelectorAll(".skills-tab-btn")
+              .forEach(function (btn, idx) {
+                if (idx === btnIndex) btn.classList.add("active");
+                else btn.classList.remove("active");
+              });
+            document
+              .querySelectorAll(".tool-projects")
+              .forEach(function (tp) {
+                if (tp.id === tabId) tp.classList.add("active");
+                else tp.classList.remove("active");
+              });
+            workEl.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+
+      // Keep the global assignment for onclick
+      window.openSkillTab = openSkillTab;
+    </script>
+  </body>
 </html>
